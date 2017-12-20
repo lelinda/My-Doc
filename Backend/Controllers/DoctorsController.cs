@@ -8,7 +8,7 @@ using System.Net;
 namespace Backend.Controllers
 {
   [Route("api/doctor")]
-  public class DoctorController : Controller
+  public class DoctorsController : Controller
   {
     [HttpGet]
     public string Get()

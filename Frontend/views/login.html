@@ -1,0 +1,31 @@
+<div class="container" style="padding-bottom: 30px">
+  <div class="col-md-6 col-md-offset-3">
+    <h1 class="title">
+      <strong>MY DOC</strong>
+    </h1>
+  </div>
+  <div class="col-md-6 col-md-offset-3">
+    <h1 class="login">User Login</h1>
+  </div>
+  <div class="col-sm-4 col-sm-offset-4">
+    <input type="text" class="form-control" placeholder="Email Address" ng-model="staff.email" ng-change="staff.email = (staff.email | lowercase)">
+  </div>
+  <div class="col-sm-4 col-sm-offset-4">
+    <div class="input-group">
+      <input type="password" class="form-control" placeholder="Password" ng-model="staff.password">
+      <span class="input-group-addon btn btn-default" ng-click="login()">Login</span>
+    </div>
+  </div>
+  <div class="row">
+    <p ng-show="errorMessage" class="text-center red-text">Could not authenticate user.</br>
+      Verify the username and password, and try again.
+    </p>
+  </div>
+  <div class="row">
+    <p class="signUp">Don't have an account?
+      <a ui-sref="staffCreate" class="signUp">
+        <strong>Sign Up!</strong>
+      </a>
+    </p>
+  </div>
+</div>

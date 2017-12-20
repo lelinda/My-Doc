@@ -3,19 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore; 
 
 namespace Backend.Controllers
 {
-    public class User
-    {
-        public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-    }
-
-    [Route("api/[controller]")]
+    [Route("api/users")]
     public class UsersController : Controller
     {
         private readonly UserContext _context;
@@ -26,15 +18,10 @@ namespace Backend.Controllers
 
             if (_context.Users.Count() == 0)
             {
-                User u = new User();
-                u.Id = 1;
-                u.FirstName = "Linda";
-                u.LastName = "Le";
-                u.Email = "lle@yahoo.com";
-                u.Password = "abc123";
+                _context.Users.Add(new User() { Id = 1, FirstName = "Linda", LastName = "Le", Email = "lindale@gmail.com", Password = "abc123" });
+                _context.Users.Add(new User() { Id = 2, FirstName = "Darlene", LastName = "Kim", Email = "darlenekim@gmail.com", Password = "abc123" });
+                _context.Users.Add(new User() { Id = 3, FirstName = "Ryan", LastName = "Field", Email = "ryanfield@gmail.com", Password = "abc123" });
 
-
-                _context.Users.Add(u);
                 _context.SaveChanges();
             }
 
@@ -63,15 +50,16 @@ namespace Backend.Controllers
 
         //// POST api/values
         [HttpPost]
-        public void Post([FromBody]User value)
+        public User Post([FromBody]User u)
         {
-            _context.Users.Add(value);
+            _context.Users.Add(u);
             _context.SaveChanges();
+            return u;
         }
 
         //// PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]User value)
+        public User Put(int id, [FromBody]User user)
         {
             foreach (User u in _context.Users)
             {
@@ -79,12 +67,13 @@ namespace Backend.Controllers
                 {
                     _context.Users.Remove(u);
                     _context.SaveChanges();
-                    _context.Users.Add(value);
+                    _context.Users.Add(user);
                     _context.SaveChanges();
 
-                    return;
+                    return user;
                 }
             }
+            return null;
         }
 
         //// DELETE api/values/5
@@ -97,8 +86,6 @@ namespace Backend.Controllers
                 {
                     _context.Users.Remove(s);
                     _context.SaveChanges();
-
-                    return;
                 }
             }
         }
