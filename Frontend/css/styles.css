@@ -1,0 +1,32 @@
+.navbar {
+  display: inline-block;
+  padding: 5px 0px;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: 'Quicksand', sans-serif;
+}
+
+a.nav {
+  color: black;
+  text-decoration: none;
+  font-family: 'Quicksand', sans-serif;
+  padding-right: 30px;
+}
+
+.nav:visited {
+  color: black;
+  text-decoration: none;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.nav:hover {
+  color: black;
+  text-decoration: underline;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.nav:active {
+  color: black;
+  text-decoration: none;
+  font-family: 'Quicksand', sans-serif;
+}

@@ -5,7 +5,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/");
 
   $stateProvider
-    .state("index", { // home view
+    .state("home", { // home view
       url: "/",
       templateUrl: "./views/home.html"
     })
@@ -16,13 +16,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
       controller: "userController"
     })
 
-    .state("users", {
+    .state("users", { // show users
       url: "/users",
       templateUrl: "./views/users.html",
       controller: "userController"
     })
 
-    .state("user", { // show user
+    .state("user", { // show 1 user
       url: "/users/:id",
       templateUrl: "./views/user.html",
       controller: "userController"
@@ -32,6 +32,30 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: "/user",
       templateUrl: "./views/login-form.html",
       controller: "userController"
+    })
+
+    .state("userDrList", { // user doctors list
+      url: "/userdoctorlist",
+      templateUrl: "./views/userDrList.html",
+      controller: "userController"
+    })
+
+    .state("login", { // login
+      url: "/login",
+      templateUrl: "./views/login.html",
+      controller: "userController"
+    })
+
+    .state("doctorCreate", { // create new doctor
+      url: "/doctorform",
+      templateUrl: "./views/doctor-form.html",
+      controller: "doctorController"
+    })
+
+    .state("doctor", { // show new doctor (1)
+      url: "/doctor",
+      templateUrl: "./views/doctor.html",
+      controller: "doctorController"
     })
 
 })
