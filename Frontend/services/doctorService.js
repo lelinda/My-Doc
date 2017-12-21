@@ -1,4 +1,9 @@
 app.service("doctorService", function($http) {
+//  doctor search
+  this.getDoctors = function(){
+    return $http.get("http://localhost:5000/api/doctor/")
+  }
+
 
   // Get one by Id
   this.getDoctorById = function(id, cb) {
