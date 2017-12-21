@@ -3,17 +3,31 @@
     <li class="navbar">
       <a ui-sref="userCreate" class="navbar">Join</a>
       <a ui-sref="login" class="navbar">Login</a>
-      <a ui-sref="doctorCreate" class="navbar">List Practice</a>
     </li>
   </ul>
-  <div class="col-sm-10" id="search">
-    <input type="text" class="form-control" placeholder="Search for Doctors..." ng-model="searchText">
+  <div class="row">
+    <div class="col-md-4" id="search">
+      <label>Doctor:</label>
+      <input type="text" class="form-control" ng-model="searchText" placeholder="Search by Doctor">
+    </div>
+    <div class="col-md-3" id="search">
+      <label>Specialty:</label>
+      <select class="form-control">
+        <option value="">Search by Specialty</option>
+        <option>1</option>
+        <option>2</option>
+      </select>
+    </div>
+    <div class="col-md-3" id="search">
+      <label>Location:</label>
+      <input type="text" class="form-control" placeholder="Search by Location">
+    </div>
+    <div class="col-md-2" id="search">
+      <button class="btn btn-default">Search</button>
+    </div>
   </div>
-  <div class="col-sm-2" id="search">
-    <button class="btn btn-default">Search</button>
-  </div>
-  <div class="col-sm-12">
-    <table class="table table">
+  <div class="col-md-12">
+    <table class="table table-hover">
       <tr class="transparentBG">
         <th>First Name</th>
         <th>Middle Name</th>
@@ -21,12 +35,13 @@
         <th>Title</th>
         <th>Specialty</th>
         <th>Gender</th>
-        <th>Address</th>
-        <th>Office Hours</th>
-        <th>Phone Number</th>
         <th>NPI</th>
         <th>License</th>
+        <th>Facility Name</th>
         <th>Accepting New Patients?</th>
+        <th>Address</th>
+        <th>Phone Number</th>
+        <th>Languages</th>
         <th>Insurances</th>
         <th>Bio</th>
       </tr>
@@ -35,15 +50,55 @@
         <td>{{ doctor.profile.middle_name }}</td>
         <td>{{ doctor.profile.last_name }}</td>
         <td>{{ doctor.profile.title }}</td>
-        <th>{{ }}</th>
+        <th>
+          <p>{{ doctor.specialties[0].uid }}</p>
+          <p>{{ doctor.specialties[1].uid }}</p>
+          <p>{{ doctor.specialties[2].uid }}</p>
+        </th>
         <td>{{ doctor.profile.gender }}</td>
-        <td>{{ }}</td>
-        <td>{{ }}</td>
-        <td>{{ }}</td>
         <td>{{ doctor.npi }}</td>
-        <td>{{ }}</td>
-        <td>{{ }}</td>
-        <td>{{ }}</td>
+        <td>{{ doctor.licenses[0].state }}, {{ doctor.licenses[1].number }}</td>
+        <td>{{ doctor.practices[0].name }}</td>
+        <td>{{ doctor.practices[0].accepts_new_patients }}</td>
+        <td>
+          <p>
+            <strong>Street: </strong>{{ doctor.practices[0].visit_address.street }}</p>
+          <p>
+            <strong>City: </strong>{{ doctor.practices[0].visit_address.city }}</p>
+          <p>
+            <strong>State: </strong>{{ doctor.practices[0].visit_address.state }}</p>
+          <p>
+            <strong>Zip: </strong>{{ doctor.practices[0].visit_address.zip }}</p>
+        </td>
+        <td>{{ doctor.practices[0].phones[1].number }}</td>
+        <td>
+          <p>{{ doctor.practices[0].languages[0].name }}</p>
+          <p>{{ doctor.practices[0].languages[1].name }}</p>
+          <p>{{ doctor.practices[0].languages[2].name }}</p>
+        </td>
+        <td>
+          <p>{{ doctor.practices[0].insurance_uids[0] }}</p>
+          <p>{{ doctor.practices[0].insurance_uids[1] }}</p>
+          <p>{{ doctor.practices[0].insurance_uids[2] }}</p>
+          <p>{{ doctor.practices[0].insurance_uids[3] }}</p>
+          <p>{{ doctor.practices[0].insurance_uids[4] }}</p>
+          <p>{{ doctor.practices[0].insurance_uids[5] }}</p>
+          <p>{{ doctor.practices[0].insurance_uids[6] }}</p>
+          <p>{{ doctor.practices[0].insurance_uids[7] }}</p>
+          <p>{{ doctor.practices[0].insurance_uids[8] }}</p>
+          <p>{{ doctor.practices[0].insurance_uids[9] }}</p>
+          <p>{{ doctor.practices[0].insurance_uids[10] }}</p>
+          <p>{{ doctor.practices[0].insurance_uids[11] }}</p>
+          <p>{{ doctor.practices[0].insurance_uids[12] }}</p>
+          <p>{{ doctor.practices[0].insurance_uids[13] }}</p>
+          <p>{{ doctor.practices[0].insurance_uids[14] }}</p>
+          <p>{{ doctor.practices[0].insurance_uids[15] }}</p>
+          <p>{{ doctor.practices[0].insurance_uids[16] }}</p>
+          <p>{{ doctor.practices[0].insurance_uids[17] }}</p>
+          <p>{{ doctor.practices[0].insurance_uids[18] }}</p>
+          <p>{{ doctor.practices[0].insurance_uids[19] }}</p>
+          <p>{{ doctor.practices[0].insurance_uids[20] }}</p>
+        </td>
         <td>{{ doctor.profile.bio }}</td>
       </tr>
     </table>

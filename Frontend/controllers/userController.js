@@ -7,7 +7,7 @@ app.controller("userController", function($scope, $state, $stateParams, $http, u
     $http.get("http://localhost:5000/api/users")
     .then(function(response) {
       console.log(response);
-      $scope.users = response.data
+      $scope.users = response.data;
     })
   }
 

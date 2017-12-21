@@ -1,17 +1,53 @@
 <div ng-controller="doctorController" class="container">
     <ul class="text-center">
       <li class="navbar">
-        <a ui-sref="home" class="navbar">Home</a>
-        <a ui-sref="doctorCreate" class="navbar">List Practice</a>        
+        <a ui-sref="home" class="navbar">Home</a>     
       </li>
     </ul>
     <div class="col-md-6 col-md-offset-3">
       <h1 class="header text-center">Doctor View</h1>
     </div>
 
-    {{ doctor.profile.first_name }}
-    {{ doctor.profile.middle_name }}
-    {{ doctor.profile.last_name }}
-    {{ doctor.profile.title }}
-    {{ doctor.npi }}
+    <p>{{ doctor.profile.first_name }}</p>
+    <p>{{ doctor.profile.middle_name }}</p>
+    <p>{{ doctor.profile.last_name }}</p>
+    <p>{{ doctor.profile.title }}</p>
+      <p>{{ doctor.specialties[0].uid }}</p>
+      <p>{{ doctor.specialties[1].uid }}</p>
+      <p>{{ doctor.specialties[2].uid }}</p>
+    <p>{{ doctor.profile.gender }}</p>
+    <p>{{ doctor.npi }}</p>
+    <p>{{ doctor.licenses[0].state }}, {{ doctor.licenses[1].number }}</p>
+    <p>{{ doctor.practices[0].name }}</p>
+    <p>{{ doctor.practices[0].accepts_new_patients }}</p>
+      <p><strong>Street: </strong>{{ doctor.practices[0].visit_address.street }}</p>
+      <p><strong>City: </strong>{{ doctor.practices[0].visit_address.city }}</p>
+      <p><strong>State: </strong>{{ doctor.practices[0].visit_address.state }}</p>
+      <p><strong>Zip: </strong>{{ doctor.practices[0].visit_address.zip }}</p>
+    <p>{{ doctor.practices[0].phones[1].number }}</p>
+      <p>{{ doctor.practices[0].languages[0].name }}</p>
+      <p>{{ doctor.practices[0].languages[1].name }}</p>
+      <p>{{ doctor.practices[0].languages[2].name }}</p>
+      <p>{{ doctor.practices[0].insurance_uids[0] }}</p>
+      <p>{{ doctor.practices[0].insurance_uids[1] }}</p>
+      <p>{{ doctor.practices[0].insurance_uids[2] }}</p>
+      <p>{{ doctor.practices[0].insurance_uids[3] }}</p>
+      <p>{{ doctor.practices[0].insurance_uids[4] }}</p>
+      <p>{{ doctor.practices[0].insurance_uids[5] }}</p>
+      <p>{{ doctor.practices[0].insurance_uids[6] }}</p>
+      <p>{{ doctor.practices[0].insurance_uids[7] }}</p>
+      <p>{{ doctor.practices[0].insurance_uids[8] }}</p>
+      <p>{{ doctor.practices[0].insurance_uids[9] }}</p>
+      <p>{{ doctor.practices[0].insurance_uids[10] }}</p>
+      <p>{{ doctor.practices[0].insurance_uids[11] }}</p>
+      <p>{{ doctor.practices[0].insurance_uids[12] }}</p>
+      <p>{{ doctor.practices[0].insurance_uids[13] }}</p>
+      <p>{{ doctor.practices[0].insurance_uids[14] }}</p>
+      <p>{{ doctor.practices[0].insurance_uids[15] }}</p>
+      <p>{{ doctor.practices[0].insurance_uids[16] }}</p>
+      <p>{{ doctor.practices[0].insurance_uids[17] }}</p>
+      <p>{{ doctor.practices[0].insurance_uids[18] }}</p>
+      <p>{{ doctor.practices[0].insurance_uids[19] }}</p>
+      <p>{{ doctor.practices[0].insurance_uids[20] }}</p>
+    <p>{{ doctor.profile.bio }}</p>
   </div>

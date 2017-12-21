@@ -34,6 +34,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
       controller: "userController"
     })
 
+    .state("doctor", { // show new doctor (1)
+      url: "/doctor/:id",
+      templateUrl: "./views/doctor.html",
+      controller: "doctorController"
+    })
+
     .state("userDrList", { // user doctors list
       url: "/userdoctorlist",
       templateUrl: "./views/userDrList.html",
@@ -44,18 +50,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: "/login",
       templateUrl: "./views/login.html",
       controller: "userController"
-    })
-
-    .state("doctorCreate", { // create new doctor
-      url: "/doctorform",
-      templateUrl: "./views/doctor-form.html",
-      controller: "doctorController"
-    })
-
-    .state("doctor", { // show new doctor (1)
-      url: "/doctor/:id",
-      templateUrl: "./views/doctor.html",
-      controller: "doctorController"
     })
 
 })
