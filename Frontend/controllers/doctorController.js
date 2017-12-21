@@ -2,7 +2,7 @@ app.controller("doctorController", function($scope, $state, $stateParams, $http,
 
   $scope.getDoctor = function() {
     console.log("getting doctor");
-    $http.get("http://localhost:5000/api/doctor/")
+    doctorService.getDoctors()
     .then(function(response) {
       console.log(response);
       console.log(response.data.data);

@@ -15,7 +15,7 @@ namespace Backend.Controllers
     {
       WebClient client = new WebClient();
 
-      string response = client.DownloadString("https://api.betterdoctor.com/2016-03-01/doctors?location=37.773,-122.413,100&skip=2&limit=41331&user_key=221f9015cc1b79992786e817265bdec9");
+      string response = client.DownloadString("https://api.betterdoctor.com/2016-03-01/doctors?location=37.773,-122.413,100&skip=2&limit=100&user_key=221f9015cc1b79992786e817265bdec9");
 
       return response;
     }
