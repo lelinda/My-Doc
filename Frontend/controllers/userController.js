@@ -18,7 +18,7 @@ app.controller("userController", function($scope, $state, $stateParams, $http, u
     userService.getUserById($stateParams.id, function (user) {
       $scope.user = user;
       $scope.submitButton = true;
-      $scope.heading = "Add New User"
+      $scope.heading = "Create New User"
     })
   }
   else {
@@ -33,7 +33,8 @@ app.controller("userController", function($scope, $state, $stateParams, $http, u
   $scope.addUser = function() {
     userService.post($stateParams.id, function(user) {
       $scope.user = user;
-      $state.go("users");
+      $state.go("login");
+      console.log("new user added");
     })
   }
 
@@ -52,4 +53,5 @@ app.controller("userController", function($scope, $state, $stateParams, $http, u
       $state.go("users");
     })
   }
+
 })

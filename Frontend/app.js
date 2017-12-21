@@ -53,7 +53,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
 
     .state("doctor", { // show new doctor (1)
-      url: "/doctor",
+      url: "/doctor/:id",
       templateUrl: "./views/doctor.html",
       controller: "doctorController"
     })

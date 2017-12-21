@@ -1,16 +1,11 @@
-<div class="container" style="padding-bottom: 30px">
-  <ul>
+<div ng-controller="userController" class="container" style="padding-bottom: 30px">
+  <ul class="text-center">
     <li class="navbar">
       <a ui-sref="home" class="navbar">Home</a>
     </li>
   </ul>
   <div class="col-md-6 col-md-offset-3">
-    <h1 class="title">
-      <strong>MY DOC</strong>
-    </h1>
-  </div>
-  <div class="col-md-6 col-md-offset-3">
-    <h1 class="login">User Login</h1>
+    <h1 class="login text-center">User Login</h1>
   </div>
   <div class="col-sm-4 col-sm-offset-4">
     <input type="text" class="form-control" placeholder="Email Address" ng-model="user.email" ng-change="user.email = (user.email | lowercase)">
@@ -18,7 +13,7 @@
   <div class="col-sm-4 col-sm-offset-4">
     <div class="input-group">
       <input type="password" class="form-control" placeholder="Password" ng-model="user.password">
-      <span class="input-group-addon btn btn-default" ng-click="addUser()">Login</span>
+      <span class="input-group-addon btn btn-default" ng-click="login()">Login</span>
     </div>
   </div>
   <div class="row">
@@ -27,7 +22,7 @@
     </p>
   </div>
   <div class="row">
-    <p class="signUp">Don't have an account?
+    <p class="signUp text-center">Don't have an account?
       <a ui-sref="userCreate" class="signUp">
         <strong>Sign Up!</strong>
       </a>
