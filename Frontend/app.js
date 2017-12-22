@@ -1,55 +1,48 @@
 var app = angular.module("myApp", ["ui.router"])
 
-app.config(function($stateProvider, $urlRouterProvider) {
+app.config(function ($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise("/");
 
+  // home view -> login
   $stateProvider
-    .state("home", { // home view
+    .state("home", {
       url: "/",
-      templateUrl: "./views/home.html"
+      templateUrl: "./views/home.html",
     })
 
-    .state("userCreate", { // create user
-      url: "/loginform",
+    // create new user
+    .state("userCreate", { 
+      url: "/user/new",
       templateUrl: "./views/login-form.html",
       controller: "userController"
     })
 
-    .state("users", { // show users
-      url: "/users",
-      templateUrl: "./views/users.html",
-      controller: "userController"
-    })
-
-    .state("user", { // show 1 user
-      url: "/users/:id",
+    // show user by ID
+    .state("user", {
+      url: "/user/:id",
       templateUrl: "./views/user.html",
       controller: "userController"
     })
-
-    .state("userUpdate", { // update user
-      url: "/user",
+    // update user by ID
+    .state("userUpdate", {
+      url: "/user/:id/edit",
       templateUrl: "./views/login-form.html",
       controller: "userController"
     })
 
-    .state("doctor", { // show new doctor (1)
-      url: "/doctor/:id",
-      templateUrl: "./views/doctor.html",
+    // show search bar for doctors -> search doctors view
+    .state("doctors", {
+      url: "/doctors",
+      templateUrl: "./views/doctors.html",
       controller: "doctorController"
     })
 
-    .state("userDrList", { // user doctors list
-      url: "/userdoctorlist",
-      templateUrl: "./views/userDrList.html",
-      controller: "userController"
-    })
-
-    .state("login", { // login
-      url: "/login",
-      templateUrl: "./views/login.html",
-      controller: "userController"
+    // show doctor by ID
+    .state("doctor", {
+      url: "/doctors/:id",
+      templateUrl: "./views/doctor.html",
+      controller: "doctorController"
     })
 
 })

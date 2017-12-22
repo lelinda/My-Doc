@@ -18,8 +18,8 @@ namespace Backend.Controllers
 
             if (_context.Users.Count() == 0)
             {
-                _context.Users.Add(new User() { Id = 1, FirstName = "Linda", LastName = "Le", Email = "lindale@gmail.com", Password = "abc123" });
-                _context.Users.Add(new User() { Id = 2, FirstName = "Darlene", LastName = "Kim", Email = "darlenekim@gmail.com", Password = "abc123" });
+                _context.Users.Add(new User() { Id = 1, FirstName = "Linda", LastName = "Le", Email = "lindale@gmail.com", Password = "abc123"});
+                _context.Users.Add(new User() { Id = 2, FirstName = "Darlene", LastName = "Kim", Email = "darlenekim@gmail.com", Password = "abc123"});
                 _context.Users.Add(new User() { Id = 3, FirstName = "Ryan", LastName = "Field", Email = "ryanfield@gmail.com", Password = "abc123" });
 
                 _context.SaveChanges();
@@ -52,6 +52,7 @@ namespace Backend.Controllers
         [HttpPost]
         public User Post([FromBody]User u)
         {
+            u.Id = _context.Users.Count()+1;
             _context.Users.Add(u);
             _context.SaveChanges();
             return u;

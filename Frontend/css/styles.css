@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+.red-text {
+  color: red;
+  font-size: 11px;
+}
+
 .navbar {
   display: inline-block;
   padding: 5px 0px;
