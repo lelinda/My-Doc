@@ -2,12 +2,12 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
 
   // Get all user
   $scope.getUser = function () {
-    console.log("getting users");
-
-    $http.get("http://localhost:5000/api/users")
+    userService.getUser()
       .then(function (response) {
-        console.log(response);
+        console.log("Users:", response.data)
         $scope.users = response.data;
+      }, function (error) {
+        console.log(error);
       })
   }
 
@@ -29,27 +29,36 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
     })
   }
 
-  // Create
-
-  // if fields are empty error message in the user form validation (hidden as default)
+  // If fields are empty error message in the user form validation (hidden as default)
   $scope.firstNameReq = false;
   $scope.lastNameReq = false;
   $scope.emailReq = false;
   $scope.passwordReq = false;
 
-  // if passwords do not match error message in the new user form (hidden as default)
+  // If passwords do not match error message in the new user form (hidden as default)
   $scope.passwordError = false;
 
-  $scope.addUser = function () {
-    // checks if fields are empty, form validation error message will show, otherwise, it will stay hidden
+  // Create
+  $scope.addUser = function (user) {
+
+    // Call the user service
+    userService.postUser(user)
+      .then(function (response) {
+        console.log("New User Added:", response.data);
+        console.log("Updated Users:", $scope.users);
+      }, function (error) {
+        console.log(error);
+      })
+
+    // Checks if fields are empty, form validation error message will show, otherwise, it will stay hidden
     if ($scope.user.firstName == "" || $scope.user.firstName == null) {
       $scope.firstNameReq = true;
     } else {
       $scope.firstNameReq = false;
     }
     if ($scope.user.lastName == "" || $scope.user.lastName == null) {
-      $scope.lastNameReq = true; 
-    }  else {
+      $scope.lastNameReq = true;
+    } else {
       $scope.lastNameReq = false;
     }
     if ($scope.user.email == "" || $scope.user.email == null) {
@@ -63,68 +72,64 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
       $scope.passwordReq = false;
     }
 
-    // checks if password field matches confirm password field, if it does not match, error message will show, otherwise, it will stay hidden
+    // Checks if password field matches confirm password field, if it does not match, error message will show, otherwise, it will stay hidden
     if ($scope.user.password != $scope.user.confirmPassword) {
       $scope.passwordError = true;
     } else {
       $scope.passwordError = false;
     }
 
-    // if forms are not empty & passwords do match, register button will proceed to home-login view
+    // If forms are not empty & passwords do match, register button will proceed to home-login view
     if ($scope.user.firstName != "" && $scope.user.firstName != null && $scope.user.lastName != "" && $scope.user.lastName != null && $scope.user.email != "" && $scope.user.email != null && $scope.user.password != "" && $scope.user.password != null && $scope.user.confirmPassword != "" && $scope.user.confirmPassword != null && $scope.user.password == $scope.user.confirmPassword) {
       $state.go("home");
     }
-
-    userService.post($stateParams.id, function (user) {
-      $scope.user = user;
-
-      user.firstName = "";
-      user.lastName = "";
-      user.email = "";
-      user.password = "";
-      user.confirmPassword == user.password;
-
-    })
   }
 
-
-
   // Update
-  $scope.updateUser = function (user) {
-    userService.put($stateParams.id, function (user) {
-      $scope.user = user;
-      $state.go("user");
-    })
+  $scope.updateUser = function (id, user) {
+    userService.putUser(id, user)
+      .then(function (response) {
+        console.log(response.data);
+        console.log($scope.users);
+      }, function (error) {
+        console.log(error);
+      })
   }
 
   // Delete
   $scope.deleteUser = function (user) {
-    userService.delete($stateParams.id, function (user) {
-      $scope.user = user;
-      $state.go("home");
-    })
+    userService.delete(id, user)
+      .then(function (response) {
+        console.log(response.data);
+        console.log($scope.users);
+        $scope.user = user;
+        $state.go("home");
+      }, function (error) {
+        console.log(error);
+      })
+
   }
 
-  // login form validation error message hidden on initial load
+  // Login form validation error message hidden on initial load
   $scope.errorMessage = false;
 
-  // login
-  $scope.login = function (user){
+  // Login
+  $scope.login = function (user) {
     userService.getUser()
-    .then(function (response){
-      console.log(response);
-      for (var i = 0; i < response.data.length; i++) {
-        if(response.data[i].email == user.email && response.data[i].password == user.password){
-          $state.go("doctors");
+      .then(function (response) {
+        console.log("Users:", response);
+        for (var i = 0; i < response.data.length; i++) {
+          if (response.data[i].email == user.email && response.data[i].password == user.password) {
+            $state.go("doctors");
+          }
+          else {
+            $scope.errorMessage = true;
+          }
         }
-        else {
-          $scope.errorMessage = true;
-        }
-      }
-    })
-    .catch(function (error){
-      console.log(error)
-    })
-  }  
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
 
 })
