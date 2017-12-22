@@ -1,12 +1,12 @@
-app.service("userService", function($http) {
+app.service("userService", function ($http) {
 
   // Get all
-  this.getUser = function() {
+  this.getUser = function () {
     return $http.get("http://localhost:5000/api/users")
   }
 
   // Get one by Id
-  this.getUserById = function(id, cb) {
+  this.getUserById = function (id, cb) {
     if (id == "" || id == undefined || id == null) {
       var user = {}
       cb(user)
@@ -21,8 +21,8 @@ app.service("userService", function($http) {
     }
   }
 
-   // Create
-   this.post = function(id, cb) {
+  // Create
+  this.post = function (id, cb) {
     if (id == "" || id == undefined || id == null) {
       var user = {}
       cb(user)
@@ -38,7 +38,7 @@ app.service("userService", function($http) {
   }
 
   // Update
-  this.put = function(id, cb) {
+  this.put = function (id, cb) {
     if (id == "" || id == undefined || id == null) {
       var user = {}
       cb(user)
@@ -54,7 +54,7 @@ app.service("userService", function($http) {
   }
 
   // Delete
-  this.delete = function(id, cb) {
+  this.delete = function (id, cb) {
     if (id == "" || id == undefined || id == null) {
       var user = {}
       cb(user)

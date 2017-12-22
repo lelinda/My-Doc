@@ -1,8 +1,7 @@
 <div ng-controller="doctorController" class="container">
   <ul class="text-center">
     <li class="navbar">
-      <a ui-sref="users({id: user.id})" class="navbar">Profile</a> -
-      <a ui-sref="userDrList" class="navbar">My Doctor List</a> -
+      <a ui-sref="user({id: user.id})" class="navbar">Profile</a> -
       <a ui-sref="home" class="navbar">Logout</a>
     </li>
   </ul>
@@ -417,10 +416,7 @@
   <div class="col-md-12">
     <table class="table table-hover">
       <tr class="transparentBG">
-        <th>First Name</th>
-        <th>Middle Name</th>
-        <th>Last Name</th>
-        <th>Title</th>
+        <th>Name</th>
         <th>Specialty</th>
         <th>Gender</th>
         <th>NPI</th>
@@ -429,28 +425,26 @@
         <th>Accepting New Patients?</th>
         <th>Address</th>
         <th>Phone Number</th>
-        <th>Languages</th>
-        <th>Insurances</th>
+        <th>Language(s)</th>
+        <th>Insurance(s)</th>
         <th>Bio</th>
+        <th>Website</th>
       </tr>
       <tr class="transparentBG" ng-repeat="doctor in doctors | filter:searchText | orderBy:'lastName'" ui-sref="doctor({id: doctor.id})">
-        <td>{{ doctor.profile.first_name }}</td>
-        <td>{{ doctor.profile.middle_name }}</td>
-        <td>{{ doctor.profile.last_name }}</td>
-        <td>{{ doctor.profile.title }}</td>
-        <th>
+        <td>{{ doctor.profile.first_name }} {{ doctor.profile.middle_name }} {{ doctor.profile.last_name + ','}} {{ doctor.profile.title }}</td>
+        <td>
           <p>{{ doctor.specialties[0].uid }}</p>
           <p>{{ doctor.specialties[1].uid }}</p>
           <p>{{ doctor.specialties[2].uid }}</p>
-        </th>
+        </td>
         <td>{{ doctor.profile.gender }}</td>
         <td>{{ doctor.npi }}</td>
-        <td>{{ doctor.licenses[0].state }}, {{ doctor.licenses[1].number }}</td>
+        <td>{{ doctor.licenses[0].state }}{{', ' + doctor.licenses[1].number }}</td>
         <td>{{ doctor.practices[0].name }}</td>
         <td>{{ doctor.practices[0].accepts_new_patients }}</td>
         <td>
           <p>
-            <strong>Street: </strong>{{ doctor.practices[0].visit_address.street }}</p>
+            <strong>Street: </strong>{{ doctor.practices[0].visit_address.street }} {{ doctor.practices[0].visit_address.street2 }}</p>
           <p>
             <strong>City: </strong>{{ doctor.practices[0].visit_address.city }}</p>
           <p>
@@ -488,6 +482,7 @@
           <p>{{ doctor.practices[0].insurance_uids[20] }}</p>
         </td>
         <td>{{ doctor.profile.bio }}</td>
+        <td><a href="{{ doctor.practices[0].website }}">Visit Website</a></td>
       </tr>
     </table>
   </div>
