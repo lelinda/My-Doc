@@ -5,7 +5,7 @@
     <h1 class="text-center">MY DOC</h1>
   </div>
   <div class="col-md-6 col-md-offset-3">
-    <h3 class="login text-center">User Login</h1>
+    <h3 class="login text-center">Login</h1>
   </div>
   <div class="col-sm-4 col-sm-offset-4">
     <input type="text" class="form-control" placeholder="Email Address" ng-model="user.email" ng-change="user.email = (user.email | lowercase)">
@@ -15,13 +15,9 @@
       <input type="password" class="form-control" placeholder="Password" ng-model="user.password">
       <span class="input-group-addon btn btn-default" ng-click="login(user)">Login</span>
     </div>
-    <p ng-show="errorMessage" class="text-center red-text">Could not authenticate user.</br>
-      Verify the username and password, and try again.
-    </p>
-    <p class="signUp text-center">Don't have an account?
-      <a ui-sref="userCreate" class="signUp">
-        <strong>Sign Up!</strong>
-      </a>
+    <p ng-show="errorMessage" class="text-center red-text">You have entered an invalid username or password.</p>
+    <p class="signUp text-center"><a ui-sref="userCreate" class="signUp">
+        <strong>Sign Up!</strong></a>
     </p>
   </div>
 </div>

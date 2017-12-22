@@ -75,9 +75,16 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
       $state.go("home");
     }
 
-    // userService.post($stateParams.id, function (user) {
-    //   $scope.user = user;
-    // })
+    userService.post($stateParams.id, function (user) {
+      $scope.user = user;
+
+      user.firstName = "";
+      user.lastName = "";
+      user.email = "";
+      user.password = "";
+      user.confirmPassword == user.password;
+
+    })
   }
 
 
@@ -101,6 +108,7 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
   // login form validation error message hidden on initial load
   $scope.errorMessage = false;
 
+  // login
   $scope.login = function (user){
     userService.getUser()
     .then(function (response){
