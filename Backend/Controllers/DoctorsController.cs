@@ -11,11 +11,15 @@ namespace Backend.Controllers
   public class DoctorsController : Controller
   {
     [HttpGet]
-    public string Get()
+    public string Get(string name, string specialty)
     {
+      Console.WriteLine(name);
       WebClient client = new WebClient();
 
-      string response = client.DownloadString("https://api.betterdoctor.com/2016-03-01/doctors?location=37.773,-122.413,100&skip=2&limit=100&user_key=221f9015cc1b79992786e817265bdec9");
+      string response = client.DownloadString("https://api.betterdoctor.com/2016-03-01/doctors?name=" + name + "&specialty_uid=" + specialty + "&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=10&user_key=efe95df06a0afcd63f78c2b81c58fb4c");
+
+      Console.WriteLine("https://api.betterdoctor.com/2016-03-01/doctors?name=" + name + "&specialty_uid=" + y + "&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=10&user_key=efe95df06a0afcd63f78c2b81c58fb4c");
+
 
       return response;
     }
