@@ -13,15 +13,11 @@
   <div class="col-sm-4 col-sm-offset-4">
     <div class="input-group">
       <input type="password" class="form-control" placeholder="Password" ng-model="user.password">
-      <span class="input-group-addon btn btn-default" ng-click="login()">Login</span>
+      <span class="input-group-addon btn btn-default" ng-click="login(user)">Login</span>
     </div>
-  </div>
-  <div class="row">
     <p ng-show="errorMessage" class="text-center red-text">Could not authenticate user.</br>
       Verify the username and password, and try again.
     </p>
-  </div>
-  <div class="row">
     <p class="signUp text-center">Don't have an account?
       <a ui-sref="userCreate" class="signUp">
         <strong>Sign Up!</strong>

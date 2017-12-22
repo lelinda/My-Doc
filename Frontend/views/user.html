@@ -1,8 +1,11 @@
+<!-- THIS IS THE CURRENT USER'S PROFILE (THE USER WHO LOGGED INTO THIS APP)
+      NEED TO BE ABLE TO VIEW USER'S INFO & UPDATE CURRENT USER'S PROFILE -->
+
 <div ng-controller="userController" class="container">
   <ul class="text-center">
     <li class="navbar">
-      <a ui-sref="users" class="navbar">Back</a>
-      <a ui-sref="userDrList" class="navbar">My Doctor List</a>
+      <a ui-sref="users" class="navbar">Back</a> -
+      <a ui-sref="userDrList" class="navbar">My Doctor List</a> -
       <a ui-sref="home" class="navbar">Logout</a>
     </li>
   </ul>
@@ -18,7 +21,7 @@
         <th>Email</th>
         <th>Password</th>
       </tr>
-      <tr class="transparentBG" ng-repeat="user in users">
+      <tr class="transparentBG">
         <td>{{ user.id }}</td>
         <td>{{ user.firstName }}</td>
         <td>{{ user.lastName }}</td>

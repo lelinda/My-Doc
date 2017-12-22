@@ -1,7 +1,7 @@
 <div ng-controller="userController" class="container">
     <ul class="text-center">
       <li class="navbar">
-        <a ui-sref="home" class="navbar">Home</a>
+        <a ui-sref="home" class="navbar">Home</a> -
         <a ui-sref="login" class="navbar">Login</a>
       </li>
     </ul>
@@ -13,25 +13,27 @@
         <div class="col-sm-12">
           <label>First Name: </label>
           <input class="input" type="text" ng-model="user.firstName">
+          <p class="red-text" ng-hide="firstNameRequired">First Name Required</p>
         </div>
         <div class="col-sm-12">
           <label>Last Name: </label>
           <input class="input" type="text" ng-model="user.lastName">
+          <p class="red-text" ng-hide="lastNameRequired">Last Name Required</p>
         </div>
         <div class="col-sm-12">
           <label>Email: </label>
           <input class="input" type="text" ng-model="user.email" ng-change="user.email = (user.email | lowercase)">
+          <p class="red-text" ng-hide="emailRequired">Email Required</p>
         </div>
         <div class="col-sm-12">
           <label>Password: </label>
           <input class="input" type="password" ng-model="user.password">
+          <p class="red-text" ng-hide="passwordRequired">Invalid Password</p>
         </div>
         <div class="col-sm-12">
           <label>Confirm Password: </label>
           <input class="input" type="password" ng-model="user.confirmPassword">
-        </div>
-        <div>
-          <p ng-show="errorMessage" class="text-center red-text">Please check your entry and try again.</p>
+          <p class="red-text" ng-hide="confirmPasswordRequired">Confirm Password</p>
         </div>
         <div class="col-md-4 col-md-offset-4">
           <button class="btn btn-default btn-sm pull-right" style="margin-top: 10px" ng-show="submitButton" ng-click="addUser()">Register</button>
