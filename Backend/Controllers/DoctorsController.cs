@@ -18,7 +18,7 @@ namespace Backend.Controllers
 
       string response = client.DownloadString("https://api.betterdoctor.com/2016-03-01/doctors?name=" + name + "&specialty_uid=" + specialty + "&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=10&user_key=efe95df06a0afcd63f78c2b81c58fb4c");
 
-      Console.WriteLine("https://api.betterdoctor.com/2016-03-01/doctors?name=" + name + "&specialty_uid=" + y + "&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=10&user_key=efe95df06a0afcd63f78c2b81c58fb4c");
+      Console.WriteLine("https://api.betterdoctor.com/2016-03-01/doctors?name=" + name + "&specialty_uid=" + specialty + "&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=10&user_key=efe95df06a0afcd63f78c2b81c58fb4c");
 
 
       return response;

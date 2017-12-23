@@ -10,5 +10,4 @@ app.controller("specialtyController", function ($scope, $state, $stateParams, $h
   }
   
   $scope.getSpecialty();
-
 })

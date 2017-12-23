@@ -13,15 +13,5 @@ namespace Backend.Controllers
     public string Email { get; set; }
     public string Password { get; set; }
     
-
-  //   public User(int id, string firstName, string lastName, string email, string password, string confirmPassword)
-  //   {
-  //     this.Id = id;
-  //     this.FirstName = firstName;
-  //     this.LastName = lastName;
-  //     this.Email = email;
-  //     this.Password = password;
-  //     this.ConfirmPassword = confirmPassword;
-  //   }
   }
 }
