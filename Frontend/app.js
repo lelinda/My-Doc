@@ -31,6 +31,12 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: "./views/user.html",
             controller: "userController"
         })
+        // Logged in users view
+        .state("account", {
+            url: "/account",
+            templateUrl: "./views/account.html",
+            controller: "accountController"
+        })
 
         // update user by ID
         .state("userUpdate", {
