@@ -33,7 +33,7 @@ app.service("userService", function ($http) {
 
   // Delete
   this.delete = function (id, user) {
-    return $http.delete("http://localhost:5000/users/" + id + "/", user)
+    return $http.delete("http://localhost:5000/api/users/" + id + "/", user)
   }
-
+  
 })

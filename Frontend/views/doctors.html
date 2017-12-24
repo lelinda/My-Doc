@@ -1,7 +1,7 @@
 <div ng-controller="doctorController" class="container">
   <ul class="text-center">
     <li class="navbar">
-      <a ui-sref="user({id: user.id})" class="navbar">Profile</a> -
+      <a ui-sref="users({id: user.id})" ng-click="getUserId(user)" class="navbar">Profile</a> -
       <a ui-sref="home" class="navbar">Logout</a>
     </li>
   </ul>
