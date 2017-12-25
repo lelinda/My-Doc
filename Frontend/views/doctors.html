@@ -1,18 +1,23 @@
 <div ng-controller="doctorController" class="container">
-  <ul class="text-center">
-    <li class="navbar">
-      <a ui-sref="users({id: user.id})" ng-click="getUserId(user)" class="navbar">Profile</a> -
-      <a ui-sref="logout" class="navbar">Logout</a>
-    </li>
-  </ul>
   <div class="row">
-    <div class="col-md-4" id="search">
-      <label>Doctor:</label>
-      <input type="text" class="form-control" ng-model="searchText" placeholder="Search by Doctor">
+    <div class="col-md-3 col-md-offset-6">
+      <a ui-sref="account" class="nav">Profile</a>
+      <a ui-sref="logout" class="nav">Logout</a>
     </div>
-    <div class="col-md-3" id="search">
-      <label>Specialty:</label>
-      <select class="form-control">
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-4">
+      <h1 class="head">Search for your local doctor..</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-5">
+      <input type="text" class="doctorSearch form-control" ng-model="searchText" placeholder="Search by Doctor">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-5">
+      <select class="doctorSearch form-control">
         <option value="">Search by Specialty</option>
         <option value="Speech Therapy">Speech Therapy</option>
         <option value="Spinal Cord Injury Medicine">Spinal Cord Injury Medicine</option>
@@ -405,41 +410,66 @@
         <option value="Family Medicine Adult Medicine">Family Medicine Adult Medicine</option>
       </select>
     </div>
-    <div class="col-md-3" id="search">
-      <label>Location:</label>
-      <input type="text" class="form-control" placeholder="Search by Location">
-    </div>
-    <div class="col-md-2" id="search">
-      <button class="btn btn-default">Search</button>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-5">
+      <input type="text" class="doctorSearch form-control" placeholder="Search by Location">
     </div>
   </div>
+  <div class="row" style="margin-top: 15px">
+    <div class="col-md-4 col-md-offset-5">
+      <button class="button form-control btn btn-default" ng-click="doctor({id: doctor.id})">Search</button>
+    </div>
+  </div>
+
+  <!-- THESE WILL BE INVISIBLE & SHOWN ON ONE DOCTOR VIEW PAGE (DOCTOR.HTML) AFTER SEARCH COMPLETED -->
   <div class="col-md-12" ng-repeat="doctor in doctors | filter:searchText">
-    <h3 class="text-center">{{ doctor.profile.first_name + ' ' + doctor.profile.middle_name + ' ' + ' ' + doctor.profile.last_name + ', ' + doctor.profile.title }}</h3>
+    <h3 class="text-center">{{ doctor.profile.first_name + ' ' + doctor.profile.middle_name + ' ' + ' ' + doctor.profile.last_name + ', ' + doctor.profile.title
+      }}
+    </h3>
     <div class="col-md-12">
-      <p><strong>Bio: </strong>{{ doctor.profile.bio }}</p>
-    </div>
-    <div class="col-md-4">   
-      <p><strong>Specialty: </strong>{{ doctor.specialties[0].name }}</p>
-      <p><strong></strong>{{ doctor.specialties[1].name }}</p>
-      <p><strong></strong>{{ doctor.specialties[2].name }}</p>
-      <p><strong>Gender: </strong>{{ doctor.profile.gender }}</p>
-      <p><strong>NPI: </strong>{{ doctor.npi }}</p>
+      <p>
+        <strong>Bio: </strong>{{ doctor.profile.bio }}</p>
     </div>
     <div class="col-md-4">
-      <p><strong>License: </strong>{{ doctor.licenses[0].state + ' ' + doctor.licenses[1].number }}</p>      
-      <p><strong>Facility Name: </strong>{{ doctor.practices[0].name }}</p>
-      <p><strong>Accepting New Patients? </strong>{{ doctor.practices[0].accepts_new_patients }}</p>
-      <p><strong>Address: </strong>{{ doctor.practices[0].visit_address.street + ' ' + doctor.practices[0].visit_address.street2 + ', ' + doctor.practices[0].visit_address.city + ', ' + doctor.practices[0].visit_address.state + ' ' + doctor.practices[0].visit_address.zip }}</p>
+      <p>
+        <strong>Specialty: </strong>{{ doctor.specialties[0].name }}</p>
+      <p>
+        <strong></strong>{{ doctor.specialties[1].name }}</p>
+      <p>
+        <strong></strong>{{ doctor.specialties[2].name }}</p>
+      <p>
+        <strong>Gender: </strong>{{ doctor.profile.gender }}</p>
+      <p>
+        <strong>NPI: </strong>{{ doctor.npi }}</p>
     </div>
     <div class="col-md-4">
-      <p><strong>Phone Number: </strong>{{ doctor.practices[0].phones[0].number }}</p>
-      <p><strong>Fax Number: </strong>{{ doctor.practices[0].phones[1].number }}</p>
-      <p><strong>Language(s) Spoken: </strong>{{ doctor.practices[0].languages[0].name }}</p>
+      <p>
+        <strong>License: </strong>{{ doctor.licenses[0].state + ' ' + doctor.licenses[1].number }}</p>
+      <p>
+        <strong>Facility Name: </strong>{{ doctor.practices[0].name }}</p>
+      <p>
+        <strong>Accepting New Patients? </strong>{{ doctor.practices[0].accepts_new_patients }}</p>
+      <p>
+        <strong>Address: </strong>{{ doctor.practices[0].visit_address.street + ' ' + doctor.practices[0].visit_address.street2 +
+        ', ' + doctor.practices[0].visit_address.city + ', ' + doctor.practices[0].visit_address.state + ' ' + doctor.practices[0].visit_address.zip
+        }}
+      </p>
+    </div>
+    <div class="col-md-4">
+      <p>
+        <strong>Phone Number: </strong>{{ doctor.practices[0].phones[0].number }}</p>
+      <p>
+        <strong>Fax Number: </strong>{{ doctor.practices[0].phones[1].number }}</p>
+      <p>
+        <strong>Language(s) Spoken: </strong>{{ doctor.practices[0].languages[0].name }}</p>
       <p>{{ doctor.practices[0].languages[1].name }}</p>
       <p>{{ doctor.practices[0].languages[2].name }}</p>
     </div>
     <div class="col-md-12">
-      <p><strong>Insurance(s) Accepted: </strong></p>
+      <p>
+        <strong>Insurance(s) Accepted: </strong>
+      </p>
       <textarea type="text" class="col-md-12" rows="10" readOnly="true">
         {{ doctor.practices[0].insurance_uids[0] }}
         {{ doctor.practices[0].insurance_uids[1] }}

@@ -9,7 +9,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         .state("home", {
             url: "/",
             templateUrl: "./views/home.html",
-            controller: "userController",
+            controller: "userController"
         })
 
         // Create new user
@@ -18,20 +18,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: "./views/login-form.html",
             controller: "userController"
         })
-
-        // Show users
-        .state("users", {
-            url: "/users",
-            templateUrl: "./views/users.html",
-            controller: "userController"
-        })
-
-        // Show user by ID
-        .state("user", {
-            url: "/users/:id",
-            templateUrl: "./views/user.html",
-            controller: "userController"
-        })
+        
         // Logged in users view
         .state("account", {
             url: "/account",
