@@ -1,0 +1,41 @@
+<!-- THIS IS THE CURRENT USER'S PROFILE (THE USER WHO LOGGED INTO THIS APP)
+      NEED TO BE ABLE TO VIEW USER'S INFO & UPDATE CURRENT USER'S PROFILE -->
+<h1>Your Account</h1>
+<div ng-controller="userController" class="container">
+  <ul class="text-center">
+    <li class="navbar">
+      <a ui-sref="doctors" class="navbar">Back</a> -
+      <a ng-click="logout()" class="navbar">Logout</a>
+    </li>
+  </ul>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1 class="header">User Profile</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <p class="userInfo" ng-model="user.firstName">
+        <strong>First Name: </strong>{{ loadedUser.firstName }}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <p class="userInfo" ng-model="user.lastName">
+        <strong>Last Name: </strong>{{ loadedUser.lastName }}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <p class="userInfo" ng-model="user.email">
+        <strong>Email: </strong>{{ loadedUser.email }}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <button class="btn btn-default btn-sm" ui-sref="userUpdate({id: loadedUser.id})">Update</button>
+      <button class="btn btn-danger btn-sm" ng-click="deleteUser(loadedUser)">Delete</button>
+    </div>
+  </div>
+</div>
+</div>

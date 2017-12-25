@@ -2,7 +2,7 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
 
   // Get all user
   $scope.getUser = function () {
-    userService.getUser()
+    userService.getUsers()
       .then(function (response) {
         console.log("Users:", response.data)
         $scope.users = response.data;
@@ -153,13 +153,15 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
 
   // Login
   $scope.login = function (user) {
-    userService.getUser()
+    userService.getUsers()
       .then(function (response) {
         console.log("Users:", response);
         // if user's email and password does not match database, login form validation error will show; or else, it will stay hidden and proceed to doctors view (as logged in user)
         for (var i = 0; i < response.data.length; i++) {
           if (response.data[i].email == user.email && response.data[i].password == user.password) {
-            $state.go("doctors");
+            $scope.errorMessage = false;
+            userService.setCurrentUser(response.data[i].id)
+            $state.go("account");
           }
           else {
             $scope.errorMessage = true;
@@ -169,5 +171,10 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
       .catch(function (error) {
         console.log(error)
       })
+  }
+  // logout function
+  $scope.logout = function (){
+    userService.setCurrentUser(0);
+    $state.go("home");
   }
 })
