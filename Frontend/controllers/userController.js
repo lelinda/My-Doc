@@ -179,7 +179,7 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
       })
   }
   // logout function
-  $scope.logout = function (){
+  $scope.logout = function () {
     userService.setCurrentUser(0);
     $state.go("home");
   }
