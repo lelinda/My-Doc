@@ -18,14 +18,15 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
     userService.getUserById($stateParams.id, function (user) {
       $scope.user = user;
       $scope.submitButton = true;
-      $scope.heading = "Create New User"
+      $scope.heading = "MyDoc Sign Up!"
+      $scope.header = "Sign up to create a new account"
     })
   }
   else {
     userService.getUserById($stateParams.id, function (user) {
       $scope.user = user;
       $scope.submitButton = false;
-      $scope.heading = "Update User"
+      $scope.heading = "Update Account"
     })
   }
 
@@ -70,6 +71,11 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
       $scope.passwordReq = false;
     }
     if (($scope.user.password == "" || $scope.user.password == null) && ($scope.user.confirmPassword != "" || $scope.user.confirmPassword != null)) {
+      $scope.passwordError = true;
+    } else {
+      $scope.passwordError = false;
+    }
+    if (($scope.user.password != "" || $scope.user.password != null) && ($scope.user.confirmPassword == "" || $scope.user.confirmPassword == null)) {
       $scope.passwordError = true;
     } else {
       $scope.passwordError = false;
@@ -129,7 +135,7 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
 
         // If forms are not empty & passwords do match, register button will proceed to home-login view
         if ($scope.user.firstName != "" && $scope.user.firstName != null && $scope.user.lastName != "" && $scope.user.lastName != null && $scope.user.email != "" && $scope.user.email != null && $scope.user.password != "" && $scope.user.password != null && $scope.user.confirmPassword != "" && $scope.user.confirmPassword != null && $scope.user.password == $scope.user.confirmPassword) {
-          $state.go("user");
+          $state.go("account");
         }
       }, function (error) {
         console.log(error);
@@ -161,7 +167,7 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
           if (response.data[i].email == user.email && response.data[i].password == user.password) {
             $scope.errorMessage = false;
             userService.setCurrentUser(response.data[i].id)
-            $state.go("account");
+            $state.go("doctors");
           }
           else {
             $scope.errorMessage = true;

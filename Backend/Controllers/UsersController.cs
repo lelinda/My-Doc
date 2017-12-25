@@ -63,7 +63,7 @@ namespace Backend.Controllers
             return null;
         }
 
-        // PUT api/values/5
+        // PUT api/values
         [HttpPut ("{id}")]
         public User Put (int id, [FromBody] User user)
         {
@@ -81,7 +81,7 @@ namespace Backend.Controllers
             return null;
         }
 
-        // DELETE api/values/5
+        // DELETE api/values
         [HttpDelete ("{id}")]
         public void Delete (int id)
         {
