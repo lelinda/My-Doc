@@ -159,7 +159,6 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
         // if user's email and password does not match database, login form validation error will show; or else, it will stay hidden and proceed to doctors view (as logged in user)
         for (var i = 0; i < response.data.length; i++) {
           if (response.data[i].email == user.email && response.data[i].password == user.password) {
-            $scope.errorMessage = false;
             $state.go("doctors");
           }
           else {

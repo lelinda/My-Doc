@@ -35,5 +35,5 @@ app.service("userService", function ($http) {
   this.delete = function (id, user) {
     return $http.delete("http://localhost:5000/api/users/" + id + "/", user)
   }
-  
+
 })
