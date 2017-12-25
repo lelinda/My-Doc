@@ -1,7 +1,16 @@
 app.controller("doctorController", function ($scope, $state, $stateParams, $http, doctorService) {
 
-  $scope.getDoctor = function () {
-    doctorService.getDoctors()
+  $scope.getDoctors = function () {
+    var name = "";
+    var specialty = "";
+    if ($scope.searchedName != undefined){
+      var name = $scope.searchedName.split(" ").join("%20")
+    };
+    if ($scope.searchedSpecialty != undefined){
+    var specialty = $scope.searchedSpecialty.split(" ").join("-")
+    };
+    console.log(name + " " + specialty)
+    doctorService.getDoctorsApi(name, specialty)
       .then(function (response) {
         console.log("Doctors Response: ", response);
         console.log("Doctors Data:", response.data.data);
@@ -30,7 +39,7 @@ app.controller("doctorController", function ($scope, $state, $stateParams, $http
       })
   }
 
-  $scope.getDoctor();
+  // $scope.getDoctors();
 
   // Get one doctor by Id
   if ($stateParams.id == "" || $stateParams.id == undefined || $stateParams.id == null) {

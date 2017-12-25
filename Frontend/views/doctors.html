@@ -1,18 +1,18 @@
 <div ng-controller="doctorController" class="container">
   <ul class="text-center">
     <li class="navbar">
-      <a ui-sref="users({id: user.id})" ng-click="getUserId(user)" class="navbar">Profile</a> -
+      <a ui-sref="account" ng-click="getUserId(user)" class="navbar">Profile</a> -
       <a ui-sref="home" class="navbar">Logout</a>
     </li>
   </ul>
   <div class="row">
     <div class="col-md-4" id="search">
       <label>Doctor:</label>
-      <input type="text" class="form-control" ng-model="searchText" placeholder="Search by Doctor">
+      <input type="text" class="form-control" ng-model="searchedName" placeholder="Search by Doctor">
     </div>
-    <div class="col-md-3" id="search">
+    <div class="col-md-3" id="search" 
       <label>Specialty:</label>
-      <select class="form-control">
+      <select class="form-control" ng-model="searchedSpecialty">
         <option value="">Search by Specialty</option>
         <option value="Speech Therapy">Speech Therapy</option>
         <option value="Spinal Cord Injury Medicine">Spinal Cord Injury Medicine</option>
@@ -410,7 +410,7 @@
       <input type="text" class="form-control" placeholder="Search by Location">
     </div>
     <div class="col-md-2" id="search">
-      <button class="btn btn-default">Search</button>
+      <button class="btn btn-default" ng-click="getDoctors()">Search</button>
     </div>
   </div>
   <div class="col-md-12" ng-repeat="doctor in doctors | filter:searchText">
