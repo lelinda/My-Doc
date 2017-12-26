@@ -1,16 +1,33 @@
 app.controller("doctorController", function ($scope, $state, $stateParams, $http, doctorService) {
 
+  // doctor search function
   $scope.getDoctors = function () {
+    var lat = "";
+    var lng = "";
     var name = "";
     var specialty = "";
     if ($scope.searchedName != undefined){
       var name = $scope.searchedName.split(" ").join("%20")
     };
     if ($scope.searchedSpecialty != undefined){
-    var specialty = $scope.searchedSpecialty.split(" ").join("-")
+    specialty = $scope.searchedSpecialty.split(" ").join("-")
     };
-    console.log(name + " " + specialty)
-    doctorService.getDoctorsApi(name, specialty)
+    if($scope.searchedLocation !== undefined){
+      doctorService.geoMap($scope.searchedLocation)
+      .then(function(response){
+        console.log(response)
+        lat = response.data.results[0].geometry.location.lat;
+        lng = response.data.results[0].geometry.location.lng;
+        console.log(lat, lng)
+      })
+      .catch(function(error){
+        console.log(error)
+      })
+    }
+    var coords = "";
+    setTimeout(function(){coords = lat + "%2C" + lng;}, 1000);
+    setTimeout(function(){
+    doctorService.getDoctorsApi(name, specialty, coords)
       .then(function (response) {
         console.log("Doctors Response: ", response);
         console.log("Doctors Data:", response.data.data);
@@ -37,6 +54,7 @@ app.controller("doctorController", function ($scope, $state, $stateParams, $http
       }, function (error) {
         console.log(error);
       })
+    }, 2000);
   }
 
   // $scope.getDoctors();
@@ -52,4 +70,5 @@ app.controller("doctorController", function ($scope, $state, $stateParams, $http
       $scope.doctor = doctor;
     })
   }
+
 })
