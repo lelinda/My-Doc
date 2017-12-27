@@ -3,11 +3,11 @@ app.controller("doctorController", function ($scope, $state, $stateParams, $http
   $scope.getDoctors = function () {
     var name = "";
     var specialty = "";
-    if ($scope.searchedName != undefined){
+    if ($scope.searchedName != undefined) {
       var name = $scope.searchedName.split(" ").join("%20")
     };
-    if ($scope.searchedSpecialty != undefined){
-    var specialty = $scope.searchedSpecialty.split(" ").join("-")
+    if ($scope.searchedSpecialty != undefined) {
+      var specialty = $scope.searchedSpecialty.split(" ").join("-")
     };
     console.log(name + " " + specialty)
     doctorService.getDoctorsApi(name, specialty)
@@ -51,5 +51,6 @@ app.controller("doctorController", function ($scope, $state, $stateParams, $http
     doctorService.getDoctorById($stateParams.id, function (doctor) {
       $scope.doctor = doctor;
     })
+    $state.go("doctor");
   }
 })

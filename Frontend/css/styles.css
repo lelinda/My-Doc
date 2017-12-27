@@ -1,127 +1,153 @@
 * {
-    padding: 0;
-    margin: 0 auto;
     box-sizing: border-box;
+    color: gray;
     font-size: 14px;
     letter-spacing: 0.5px;
-    color: gray
+    margin: 0 auto;
+    padding: 0;
 }
 
+/* Background image */
 body { 
-    background: url(medical.jpg) no-repeat center center fixed; 
+    background-image: url("doctor.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: white;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    position: relative;
+    margin: 0 auto;
 }
 
+
+/* All placeholder input fields */
 ::placeholder {
     color: gray;
 }
 
+/* MyDoc Title */
 .myDoc {
-    text-align: center;
+    color: #eee;
     font-family: 'Spectral SC', serif;
     font-size: 80px;
     font-weight: 800;
     letter-spacing: 15px;
-    color: #eee;
+    margin: 50px 0 30px 0;
+    text-align: center;
 }
 
+/* Feeling meh header */
 .meh {
-    margin-top: 5px;
-    text-align: center;
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
+/* Description on homepage */
 .bio {
-    padding-top: 10px;
-    text-align: center;
+    color: white;
     font-family: 'Poppins', sans-serif;
-    letter-spacing: 1px;
     font-size: 14px;
-    color: white;
-}
-
-.begin {
-    padding-top: 5px;
-    text-align: center;
-    font-size: 13px;
-    color: white;
-    font-weight: 200;
-}
-
-a.home {
-    color: darkblue;
-    font-size: 13px;
-    font-weight: 400;
-}
-
-a.home:link {
-    border-bottom: 1px solid darkblue;
-}
-
-a.home:visited {
-    border-bottom: 1px solid darkblue;
-}
-
-a.home:hover {
-    border-bottom: 1px dotted darkblue;
-}
-
-a.home:active {
-    border-bottom: 1px solid darkblue;
-}
-
-.log {
-    margin-top: 10px;
-}
-
-.login {
-    background:transparent;
-    padding: 0 8px;
-    margin: 0px 0;
-    color: #eee;
-    border: 1px solid white;
-    height: 25px;
-    width: 100%;
-    font-size: 12px;
     letter-spacing: 1px;
-    border-right: none;
+    margin-bottom: 30px;
+    text-align: center;
 }
 
+/* Sign in below paragraph */
+.begin {
+    color: white;
+    font-size: 13px;
+    font-weight: 200;
+    text-align: center;
+}
+
+/* MyDoc? text */
 #login {
     border-top: none;
 }
 
-.input-group-addon {
-    color: gray;
-    font-weight: 500;
-    font-size: 12px;
-    background: #eee;
-    padding: 0 10px;
-    border: 1px solid white;
+/* MyDoc? text */
+strong.doc {
+    color: white; 
+    font-size: 13px;
+    font-weight: 400; 
 }
 
+/* "Click here" link */
+a.home {
+    color: darkblue;
+    font-size: 13px;
+    font-weight: 400;
+    border-bottom: 1px solid darkblue;
+}
+
+/* "Click here" link, visited, active */
+a.home:link:visited:active {
+    border-bottom: 1px solid darkblue;
+}
+
+/* "Click here" hover */
+a.home:hover {
+    border-bottom: 1px dotted darkblue;
+}
+
+/* Log in box */
+.log {
+    margin-top: 20px;
+    width: 50%;
+    margin-left: 25%;
+}
+
+/* Log in box */
+.login {
+    background: transparent;
+    border: 1px solid white;
+    border-right: none;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    height: 26px;
+    letter-spacing: 1px;
+    padding: 0 8px;
+    width: 100%;
+}
+
+/* Login button */
+.input-group-addon {
+    background-color:rgba(255, 255, 255, 0.5);
+    border: 1px solid white;
+    color: gray;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 0 10px;
+}
+
+/* Login button on hover */
+.input-group-addon:hover {
+    background-color:rgba(255, 255, 255, 0.7);
+    color: gray;
+}
+
+/* Log in box removes border on click */
 input {
     outline: none;
 }
 
+/* Form validation / error messages */
 .red-text {
-    color: red;
+    color: rgb(184, 79, 79);
     font-size: 10px;
-    text-align: center;
+    margin: 3px;
     padding: 0;
-    margin: 0;
+    text-align: center;
 }
 
-strong.doc {
-    font-weight: 400; 
-    color: white; 
-    font-size: 13px;
-}
-
+/* MyDoc Sign Up header */
 .heading {
     font-family: 'Spectral SC', serif;
     font-size: 50px;
@@ -129,123 +155,236 @@ strong.doc {
     text-align: center;
 }
 
+/* Sign up to create new account header */
 .header {
     font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
     font-weight: 800;
-    margin: 15px 0 5px 0;
+    margin: 30px 0 15px 0;
     text-align: center;
-    font-size: 16px;
 }
 
+/* New user input fields */
 .input {
-    text-align: center;
-    letter-spacing: 1px; 
-    border-radius: 5px;
-    background: transparent;
-    outline: none;
-    width: 100%;
-    height: 35px;
-    margin-top: 5px;
+    background-color:rgba(255, 255, 255, 0.2);
     border: 1px solid white;
-    color: #eee;
+    border-radius: 5px;
+    color: white;
+    height: 35px;
+    letter-spacing: 1px; 
+    margin-top: 5px;
+    outline: none;
+    text-align: center;
+    width: 100%;
 }
 
-.nav {
+/* Updated & register user button */
+.update {
+    background: rgba(167, 209, 231, 0.6);
+    border-radius: 5px;
+    color: white;
     display: inline-block;
-    margin: 20px 0;
-    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px; 
+    margin-top: 10px;
+    outline: none;
+    text-align: center;
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
-    color: gray;
-}
-  
-a.nav {
-    color: gray;
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    margin-right: 20px;
-    padding: 0px 10px;
-    border-right: 1.4px dotted white;
-    border-bottom: 1.4px dotted white;
-    border-left: 1.4px dotted white;
-}
-  
-.nav:visited {
-    color: gray;
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-}
-  
-.nav:hover {
-    color: #eee;
-    font-family: 'Montserrat', sans-serif;
-}
-  
-.nav:active {
-    color: gray;
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    width: 49%;
 }
 
-.doctorSearch {
+/* Updated user button on hover */
+.update:hover {
+    background: rgb(167, 209, 231);
+    color: white;
+}
+
+/* Updated user cancel button */
+.cancel {
+    background: rgba(226, 213, 197, 0.6);
+    border-radius: 5px;
+    color: white;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px; 
+    margin-top: 10px;
+    outline: none;
     text-align: center;
+    text-transform: uppercase;
+    width: 49%;
+}
+
+/* Updated user cancel button on hover */
+.cancel:hover {
+    background: rgba(226, 213, 197, 0.8);
+    color: white;
+}
+
+/* Update profile button */
+.success {
+    background: rgba(167, 209, 231, 0.6);
+    color: white;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
     letter-spacing: 1px; 
     outline: none;
-    width: 100%;
-    height: 35px;
-    margin-top: 5px;
-    border-radius: 5px;
-}
-
-.button {
-    background-color:  #535394;
-    border: 1px solid #535394;
-    color: white;
-    border-radius: 5px;
-    font-weight: 500;
+    text-align: center;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px;
-    padding: 0;
-
+    width: 49%;
 }
 
-.button:hover {
-    background-color: rgb(51, 51, 128);
+/* Update profile button on hover */
+.success:hover {
+    background: rgba(167, 209, 231, 0.8);
     color: white;
 }
 
-.head {
-    text-align: center;
+/* Delete profile button */
+.danger {
+    background: rgba(253, 193, 195, 0.6);
+    color: white;
+    display: inline-block;
     font-family: 'Poppins', sans-serif;
-    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: 1px; 
+    outline: none;
+    text-align: center;
+    text-transform: uppercase;
+    width: 49%;
 }
 
-.userInfo {
-    border: 1px solid white;
-    padding: 5px;
+/* Delete profile button on hover */
+.danger:hover {
+    background: rgba(253, 193, 195, 0.8);
+    color: white;
+}
+
+/* Nav bar */
+.nav {
+    color: #eee;
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    margin: 20px 0;
+    text-transform: uppercase;
+}
+
+/* Nav bar */
+a.nav {
+    border: 1.4px dotted white;
+    border-top: none;
+    color: #eee;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    margin: 10px 5px;
+    padding: 0px 10px;
+    text-decoration: none;
+}
+
+/* Nav bar visited and active */
+.nav:visited:active {
+    color: #eee;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+  
+/* Nav bar on hover */
+.nav:hover {
+    color: gray;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+}
+
+/* Search for doctors input fields */
+.doctorSearch {
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    height: 35px;
+    letter-spacing: 1px; 
+    margin-top: 5px;
+    outline: none;
     text-align: center;
-    font-size: 14px;
+    width: 100%;
     font-weight: 300;
 }
 
-strong.pad {
-    padding-right: 5px;
+/* Search for doctors button */
+.searchButton {
+    background-color:  rgba(219, 230, 198, 0.6);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    height: 35px;
+    letter-spacing: 1px; 
+    margin-top: 5px;
+    outline: none;
+    padding: 5px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 13px;
-    font-weight: 400;
+    text-align: center;
+    width: 100%;
 }
 
-#doctor {
-    background-image: url('bluewallpaper.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-color: white;
-    position: relative;
+/* Search for doctors button on hover */
+.searchButton:hover {
+    background-color:  rgba(219, 230, 198, 0.8);
+    color: white;
+}
+
+/* Doctors in your area */
+/* Your profile header */
+.head {
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    margin: 50px 0 15px 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* User profile */
+.userInfo {
+    background-color:rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+    padding: 5px;
+    text-align: center;
+}
+
+/* User profile texts */
+strong.pad {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Specialty select box */
+select {
+    font-family: 'Poppins', sans-serif;
+    text-align-last: center;
+}
+
+/* Wraps doctors list */
+.wrapper {
     height: 100%;
+    margin: 0 auto;
+    position: relative;
+    width: 80%;
+    
+}
+
+/* Adds background to doctors list of info */
+.background {
+    background-color:rgba(255, 255, 255, 0.5);
+    height: 100%;
+    margin-top: 50px;
+    padding: 10px 0 25px 0;
+    position: relative;
 }

@@ -1,33 +1,35 @@
 <div ng-controller="accountController" class="container">
-  <div class="row">
-    <div class="col-md-4 col-md-offset-5">
-      <a ui-sref="doctors" class="nav">Doctors Search</a>
-      <a ng-click="logout()" class="nav">Logout</a>
-    </div>
+  <div class="col-sm-4 col-sm-offset-9">
+    <a ui-sref="doctors" class="nav">Doctors</a>
+    <a ng-click="logout()" class="nav">Logout</a>
   </div>
   <div class="row">
-    <div class="col-md-6 col-md-offset-4">
-      <h1 class="head">Your Profile</h1>
+    <div class="col-sm-6 col-sm-offset-5">
+      <h1 class="head">Account Information</h1>
     </div>
   </div>
-  <div class="col-md-4 col-md-offset-5" style="margin-top: 10px;">
+  <div class="col-sm-4 col-sm-offset-6">
     <div class="row">
       <p class="userInfo" ng-model="user.firstName">
-        <strong class="pad">First Name: </strong>{{ loadedUser.firstName }}</p>
+        <strong class="pad">First Name</strong>
+        </br>
+        {{ loadedUser.firstName | uppercase }}</p>
     </div>
     <div class="row">
       <p class="userInfo" ng-model="user.lastName">
-        <strong class="pad">Last Name: </strong>{{ loadedUser.lastName }}</p>
+        <strong class="pad">Last Name</strong>
+        </br>
+        {{ loadedUser.lastName | uppercase }}</p>
     </div>
     <div class="row">
       <p class="userInfo" ng-model="user.email">
-        <strong class="pad">Email Address: </strong>{{ loadedUser.email }}</p>
+        <strong class="pad">Email Address</strong>
+        </br>
+        {{ loadedUser.email | uppercase }}</p>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4 col-md-offset-6">
-      <button class="btn btn-default btn-sm" ui-sref="userUpdate({id: loadedUser.id})">Update</button>
-      <button class="btn btn-danger btn-sm" ng-click="deleteUser(loadedUser)">Delete</button>
+    <div class="row">
+      <button class="success btn btn-sm" ui-sref="userUpdate({id: loadedUser.id})">Update</button>
+      <button class="danger btn btn-sm" ng-click="deleteUser(loadedUser)">Delete</button>
     </div>
   </div>
 </div>
