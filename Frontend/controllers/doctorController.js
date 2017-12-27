@@ -7,7 +7,6 @@ app.controller("doctorController", function ($scope, $state, $stateParams, $http
       console.log("Empty")
       $scope.locationRequired = false;
     } else {
-      
       console.log("initMap end")
       $scope.locationRequired = true;
       var lat = "";
@@ -31,7 +30,7 @@ app.controller("doctorController", function ($scope, $state, $stateParams, $http
           .catch(function (error) {
             console.log(error)
           })
-      }
+      };
       var coords = "";
       setTimeout(function () { coords = lat + "%2C" + lng; }, 500);
       setTimeout(function () {
@@ -59,28 +58,25 @@ app.controller("doctorController", function ($scope, $state, $stateParams, $http
                 response.data.data[i].practices[0].accepts_new_patients = no;
               }
             }
-              map = new google.maps.Map(document.getElementById('mapMain'), {
-                zoom: 8,
-                center: new google.maps.LatLng(lat, lng)
-          
-                
-              });
-              for (var i = 0; i < response.data.data.length; i++){
-                console.log(response.data.data[i].practices[0].lat + " " + response.data.data[i].practices[0].lng)
-                var marker = new google.maps.Marker({
+            map = new google.maps.Map(document.getElementById('mapMain'), {
+              zoom: 8,
+              center: new google.maps.LatLng(lat, lng)
+            });
+            for (var i = 0; i < response.data.data.length; i++) {
+              console.log(response.data.data[i].practices[0].lat + " " + response.data.data[i].practices[0].lng)
+              var marker = new google.maps.Marker({
                 position: new google.maps.LatLng(response.data.data[i].practices[0].lat, response.data.data[i].practices[0].lon),
                 map: map
-                })
-              }
-              console.log("initMap end")
+              })
+            }
+            console.log("initMap end")
           }, function (error) {
             console.log(error);
           })
-          
       }, 500);
     }
-    
   }
+
   // Get one doctor by Id
   if ($stateParams.id == "" || $stateParams.id == undefined || $stateParams.id == null) {
     doctorService.getDoctorById($stateParams.id, function (doctor) {

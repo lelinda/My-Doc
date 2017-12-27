@@ -8,12 +8,9 @@
   <div class="col-sm-6 col-sm-offset-5">
     <h1 class="head">Doctors Within Your Search</h1>
   </div>
-  <!-- THESE WILL BE INVISIBLE & SHOWN ON ONE DOCTOR VIEW PAGE (DOCTOR.HTML) AFTER SEARCH COMPLETED -->
   <div class="wrapper">
     <div class="background col-md-12" ng-repeat="doctor in doctors">
-      <h3 class="text-center">{{ doctor.profile.first_name + ' ' + doctor.profile.middle_name + ' ' + ' ' + doctor.profile.last_name + ', ' + doctor.profile.title
-        }}
-      </h3>
+      <h3 class="head">{{ doctor.profile.first_name + ' ' + doctor.profile.middle_name + ' ' + ' ' + doctor.profile.last_name + ', ' + doctor.profile.title }}</h3>
       <div class="col-md-12">
         <p>
           <strong>Bio: </strong>{{ doctor.profile.bio }}</p>

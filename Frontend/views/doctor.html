@@ -8,12 +8,8 @@
   <div class="col-sm-6 col-sm-offset-5">
     <h1 class="heading">Doctor</h1>
   </div>
-
-  <!-- THESE WILL BE INVISIBLE & SHOWN ON ONE DOCTOR VIEW PAGE (DOCTOR.HTML) AFTER SEARCH COMPLETED -->
-  <div class="col-sm-12" ng-repeat="doctor in doctors | filter:searchText">
-    <h3 class="text-center">{{ doctor.profile.first_name + ' ' + doctor.profile.middle_name + ' ' + ' ' + doctor.profile.last_name + ', ' + doctor.profile.title
-      }}
-    </h3>
+  <div class="col-sm-12" ng-repeat="doctor in doctors">
+    <h3 class="head">{{ doctor.profile.first_name + ' ' + doctor.profile.middle_name + ' ' + ' ' + doctor.profile.last_name + ', ' + doctor.profile.title }}</h3>
     <div class="col-sm-12">
       <p>
         <strong>Bio: </strong>{{ doctor.profile.bio }}</p>

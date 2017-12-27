@@ -16,29 +16,13 @@ app.service("doctorService", function ($http) {
     });
 
   }
+  
   // Get one by Id
   this.getDoctorById = function (id, cb) {
     if (id == "" || id == undefined || id == null) {
       var doctor = {}
       cb(doctor)
     }
-<<<<<<< HEAD
-
-    // Get one by Id
-    this.getDoctorById = function (id, cb) {
-      if (id == "" || id == undefined || id == null) {
-        var doctor = {}
-        cb(doctor)
-      }
-      else {
-        $http.get("http://localhost:5000/api/doctor/" + id + "/")
-          .then(function (response) {
-            cb(response.data)
-          }, function (error) {
-            console.log(error);
-          })
-      }
-=======
     else {
       $http.get("http://localhost:5000/api/doctor/" + id + "/")
         .then(function (response) {
@@ -46,7 +30,6 @@ app.service("doctorService", function ($http) {
         }, function (error) {
           console.log(error);
         })
->>>>>>> bbf24e9dfa2fbb750d6148ea51684d71df12de2c
     }
   }
 })

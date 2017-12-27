@@ -301,6 +301,7 @@ a.nav {
 /* Search for doctors input fields */
 .doctorSearch {
     border-radius: 5px;
+    color: #999;
     font-family: 'Poppins', sans-serif;
     height: 35px;
     letter-spacing: 1px; 
@@ -368,6 +369,8 @@ strong.pad {
 /* Specialty select box */
 select {
     font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    margin-top: 5px;
     text-align-last: center;
 }
 
