@@ -1,9 +1,10 @@
 app.controller("doctorController", function ($scope, $state, $stateParams, $http, doctorService) {
   // doctor search function
   var map = null;
+  $scope.mapShow = true;
   $scope.locationRequired = true;
   $scope.getDoctors = function () {
-    $state.go("doctorsView"); // after clicking search button, directs to doctors-view list
+    $scope.mapShow = false;
     if ($scope.searchedLocation == undefined) {
       console.log("Empty");
       $scope.locationRequired = false;
@@ -64,10 +65,26 @@ app.controller("doctorController", function ($scope, $state, $stateParams, $http
               center: new google.maps.LatLng(lat, lng)
             });
             for (var i = 0; i < response.data.data.length; i++) {
-              console.log(response.data.data[i].practices[0].lat + " " + response.data.data[i].practices[0].lng)
+              var contentString = '<div id="content">'+
+              '<div id="siteNotice">'+
+              '</div>'+
+              '<h1 id="firstHeading" class="firstHeading">' + response.data.data[i].profile.first_name + ' '  + response.data.data[i].profile.middle_name + ' ' + response.data.data[i].profile.last_name + ', ' + response.data.data[i].profile.title + '</h1>'+
+              '<div id="bodyContent">'+
+              '<p>' + response.data.data[i].profile.bio + '</p>'+
+              '<p>' + response.data.data[i].specialties[0].name + '</p>'+
+              '<p>LINK WILL GO HERE</p>'+
+              '</div>'+
+              '</div>';
+  
+              var infowindow = new google.maps.InfoWindow({
+              content: contentString
+              });
               var marker = new google.maps.Marker({
                 position: new google.maps.LatLng(response.data.data[i].practices[0].lat, response.data.data[i].practices[0].lon),
                 map: map
+              });
+              marker.addListener('click', function() {
+                infowindow.open(map, marker);
               });
             };
             console.log("initMap end");
