@@ -80,10 +80,10 @@ strong.doc {
 
 /* "Click here" link */
 a.home {
+    border-bottom: 1px solid darkblue;
     color: darkblue;
     font-size: 13px;
     font-weight: 400;
-    border-bottom: 1px solid darkblue;
 }
 
 /* "Click here" link, visited, active */
@@ -147,6 +147,7 @@ input {
     padding: 0;
     text-align: center;
 }
+
 
 /* MyDoc Sign Up header */
 .heading {
@@ -275,9 +276,11 @@ input {
 
 /* Nav bar */
 a.nav {
-    border: 1.4px dotted white;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1.4px solid rgba(255, 255, 255, 0.4);
+    border-radius: 5px;
     border-top: none;
-    color: #eee;
+    color: white;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     margin: 10px 5px;
@@ -287,14 +290,15 @@ a.nav {
 
 /* Nav bar visited and active */
 .nav:visited:active {
-    color: #eee;
-    text-decoration: none;
+    color: white;
     font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
 }
   
 /* Nav bar on hover */
 .nav:hover {
-    color: gray;
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
 }
@@ -304,13 +308,13 @@ a.nav {
     border-radius: 5px;
     color: #999;
     font-family: 'Poppins', sans-serif;
+    font-weight: 300;
     height: 35px;
     letter-spacing: 1px; 
     margin-top: 5px;
     outline: none;
     text-align: center;
     width: 100%;
-    font-weight: 300;
 }
 
 /* Search for doctors button */
@@ -385,16 +389,56 @@ select {
     
 }
 
-/* Adds background to doctors list of info */
-.background {
-    background-color:rgba(255, 255, 255, 0.5);
-    height: 100%;
-}
-
 /* Google maps */
 #mapMain {
-    width: 75%;
-    height: 400px;
-    margin-top: 30px;
-    margin-bottom: 50px;
+    background-color:rgba(255, 255, 255, 0.5);
+    border: 10px solid rgba(255, 255, 255, 0.3);
+    height: 350px;
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    width: 90%;
+}
+
+#content {
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+/* Doctor's name & title in google maps marker */
+.firstHeading {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+}
+
+/* Specialty name in google maps marker */
+.specialtyName {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 5px 0;
+}
+
+/* Doctor's description in google maps marker */
+.doctorDescription {
+    font-family: 'Pavanam', sans-serif;
+    line-height: 18px;
+}
+
+/* "More Info link in google maps marker */
+a.info {
+    border-bottom: 1px solid darkblue;
+    color: darkblue;
+    font-size: 13px;
+}
+
+/* "More Info link, visited, active */
+a.info:link:visited:active {
+    border-bottom: 1px solid darkblue;
+}
+
+/* "More Info hover */
+a.info:hover {
+    border-bottom: 1px dotted darkblue;
 }

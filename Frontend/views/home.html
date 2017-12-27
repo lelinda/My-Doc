@@ -19,7 +19,7 @@
     </div>
     <div class="row log">
       <div class="input-group">
-        <input type="text" class="login form" placeholder="email address" ng-model="user.email" ng-change="user.email = (user.email | lowercase)">
+        <input type="email" class="login form" placeholder="email address" ng-model="user.email" ng-change="user.email = (user.email | lowercase)">
         <input type="password" id="login" class="login form" placeholder="password" ng-model="user.password">
         <span class="form input-group-addon btn" ng-click="login(user)">Login</span>
       </div>
