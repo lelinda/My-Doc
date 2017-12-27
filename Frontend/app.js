@@ -18,7 +18,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: "./views/login-form.html",
             controller: "userController"
         })
-        
+
         // Logged in users view
         .state("account", {
             url: "/account",
@@ -40,9 +40,16 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             controller: "doctorController"
         })
 
+        // Show list of doctors searched
+        .state("doctorsView", {
+            url: "/doctors/view",
+            templateUrl: "./views/doctors-view.html",
+            controller: "doctorController"
+        })
+
         // Show doctor by ID
         .state("doctor", {
-            url: "/doctors/:id",
+            url: "/doctors/view/:id",
             templateUrl: "./views/doctor.html",
             controller: "doctorController"
         })

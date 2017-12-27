@@ -1,41 +1,31 @@
 <div ng-controller="userController" class="container">
+  <div class="col-sm-6 col-sm-offset-5">
     <div class="row">
-      <div class="col-md-6 col-md-offset-4">
-        <h1 class="myDoc">MyDoc</h1>
-      </div>
+      <h1 class="myDoc">MyDoc</h1>
     </div>
     <div class="row">
-      <div class="col-md-7 col-md-offset-3">
-        <h1 class="meh">Feeling meh? Find a doctor.</h1>
-      </div>
+      <h1 class="meh">Feeling meh? Find a doctor.</h1>
     </div>
     <div class="row">
-      <div class="col-md-5 col-md-offset-4">
-        <p class="bio">Screw calling your list of doctors, only to find out they don't accept your insurance or are too far of a drive! MyDoc
-          takes care of that. Put in your zip code or type in the name of your prospective Doc. Your search on our application
-          will yield awesome results.</p>
-      </div>
+      <p class="bio">Screw calling your list of doctors, only to find out they don't accept your insurance or are too far of a drive! MyDoc
+        takes care of that. Put in your zip code or type in the name of your prospective Doc. Your search on our application
+        will yield awesome results.</p>
     </div>
     <div class="row">
-      <div class="col-md-5 col-md-offset-4">
-        <p class="begin">Sign in below to begin your search. </br>
-          New to
-          <strong class="doc">MyDoc?</strong>
-          <a ui-sref="userCreate" class="home">Click here</a> to create an account.</p>
-      </div>
+      <p class="begin">Sign in below to begin your search. </br>
+        New to
+        <strong class="doc">MyDoc?</strong>
+        <a ui-sref="userCreate" class="home">Click here</a> to create an account.</p>
     </div>
     <div class="row log">
-      <div class="col-md-3 col-md-offset-5">
-        <div class="input-group">
-          <input type="text" class="login form" placeholder="email address" ng-model="user.email" ng-change="user.email = (user.email | lowercase)">
-          <input type="password" id="login" class="login form" placeholder="password" ng-model="user.password">
-          <span class="form input-group-addon btn" ng-click="login(user)">Login</span>
-        </div>
+      <div class="input-group">
+        <input type="text" class="login form" placeholder="email address" ng-model="user.email" ng-change="user.email = (user.email | lowercase)">
+        <input type="password" id="login" class="login form" placeholder="password" ng-model="user.password">
+        <span class="form input-group-addon btn" ng-click="login(user)">Login</span>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-3 col-md-offset-5">
-        <p ng-show="errorMessage" class="red-text">Invalid username or password. Try again.</p>
-      </div>
+      <p ng-show="errorMessage" class="red-text">Invalid username or password. Try again.</p>
     </div>
   </div>
+</div>

@@ -1,19 +1,19 @@
 <div ng-controller="doctorController" class="container">
-  <ul class="text-center">
-    <li class="navbar">
-      <a ui-sref="account" ng-click="getUserId(user)" class="navbar">Profile</a> -
-      <a ui-sref="home" class="navbar">Logout</a>
-    </li>
-  </ul>
+  <div class="col-sm-4 col-sm-offset-9">
+    <a ui-sref="account" class="nav">Profile</a>
+    <a ui-sref="home" class="nav">Logout</a>
+  </div>
+  <div class="col-sm-6 col-sm-offset-5">
+    <h1 class="head">Locate Your Prospective Doctor</h1>
+  </div>
   <form name="search">
-    <div class="row">
-      <div class="col-md-4" id="search">
-        <label>Doctor:</label>
-        <input type="text" class="form-control" ng-model="searchedName" placeholder="Search by Doctor">
+    <div class="col-sm-4 col-sm-offset-6">
+      <div class="row">
+        <input type="text" class="doctorSearch form-control" ng-model="searchedName" placeholder="Search by Doctor">
       </div>
-      <div class="col-md-3" id="search" <label>Specialty:</label>
+      <div class="row">
         <!-- minimized, use the + to the left to see -->
-        <select class="form-control" ng-model="searchedSpecialty">
+        <select class="form-control" style="color: #999" ng-model="searchedSpecialty">
           <option value="">Search by Specialty</option>
           <option value="Speech Therapy">Speech Therapy</option>
           <option value="Spinal Cord Injury Medicine">Spinal Cord Injury Medicine</option>
@@ -406,126 +406,13 @@
           <option value="Family Medicine Adult Medicine">Family Medicine Adult Medicine</option>
         </select>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4 col-md-offset-5">
+      <div class="row">
         <input type="text" class="doctorSearch form-control" placeholder="Search by Location" name="searchedLocation" ng-model="searchedLocation">
-        <p class="red-text text-center" ng-hide="locationRequired">Location Required!</p>
+        <p class="red-text" ng-hide="locationRequired">Location Required!</p>
       </div>
-      <div class="col-md-2" id="search">
-        <button class="btn btn-default" ng-disabled="search.searchedLocation.$empty" ng-click="getDoctors()">Search</button>
+      <div class="row">
+        <button class="searchButton btn btn-default" ng-disabled="search.searchedLocation.$empty" ng-click="getDoctors()">Search</button>
       </div>
     </div>
   </form>
-  <div id="mapMain"></div>
-
-  <!-- THESE WILL BE INVISIBLE & SHOWN ON ONE DOCTOR VIEW PAGE (DOCTOR.HTML) AFTER SEARCH COMPLETED -->
-  <div class="col-md-12" ng-repeat="doctor in doctors | filter:searchText">
-    <h3 class="text-center">{{ doctor.profile.first_name + ' ' + doctor.profile.middle_name + ' ' + ' ' + doctor.profile.last_name + ', ' + doctor.profile.title
-      }}
-    </h3>
-    <div class="col-md-12">
-      <p>
-        <strong>Bio: </strong>{{ doctor.profile.bio }}</p>
-    </div>
-    <div class="col-md-4">
-      <p ng-repeat="specialty in doctor.specialties">
-        <strong>Specialty: </strong>{{ specialty.name }}</p>
-      <p>
-        <strong>Gender: </strong>{{ doctor.profile.gender }}</p>
-      <p>
-        <strong>NPI: </strong>{{ doctor.npi }}</p>
-    </div>
-    <div class="col-md-4">
-      <p>
-        <strong>License: </strong>{{ doctor.licenses[0].state + ' ' + doctor.licenses[1].number }}</p>
-      <p>
-        <strong>Facility Name: </strong>{{ doctor.practices[0].name }}</p>
-      <p>
-        <strong>Accepting New Patients? </strong>{{ doctor.practices[0].accepts_new_patients }}</p>
-      <p>
-        <strong>Address: </strong>{{ doctor.practices[0].visit_address.street + ' ' + doctor.practices[0].visit_address.street2 +
-        ', ' + doctor.practices[0].visit_address.city + ', ' + doctor.practices[0].visit_address.state + ' ' + doctor.practices[0].visit_address.zip
-        }}
-      </p>
-    </div>
-    <div class="col-md-4">
-      <p>
-        <strong>Phone Number: </strong>{{ doctor.practices[0].phones[0].number }}</p>
-      <p>
-        <strong>Fax Number: </strong>{{ doctor.practices[0].phones[1].number }}</p>
-      <p>
-        <strong>Language(s) Spoken: </strong>{{ doctor.practices[0].languages[0].name }}</p>
-      <p>{{ doctor.practices[0].languages[1].name }}</p>
-      <p>{{ doctor.practices[0].languages[2].name }}</p>
-    </div>
-    <div class="col-md-12">
-      <p>
-        <strong>Insurance(s) Accepted: </strong>
-      </p>
-      <textarea type="text" class="col-md-12" rows="10" readOnly="true">
-        {{ doctor.practices[0].insurance_uids[0] }}
-        {{ doctor.practices[0].insurance_uids[1] }}
-        {{ doctor.practices[0].insurance_uids[2] }}   
-        {{ doctor.practices[0].insurance_uids[3] }}   
-        {{ doctor.practices[0].insurance_uids[4] }}   
-        {{ doctor.practices[0].insurance_uids[5] }}   
-        {{ doctor.practices[0].insurance_uids[6] }}   
-        {{ doctor.practices[0].insurance_uids[7] }}   
-        {{ doctor.practices[0].insurance_uids[8] }}   
-        {{ doctor.practices[0].insurance_uids[9] }}   
-        {{ doctor.practices[0].insurance_uids[10] }}    
-        {{ doctor.practices[0].insurance_uids[11] }}    
-        {{ doctor.practices[0].insurance_uids[12] }}    
-        {{ doctor.practices[0].insurance_uids[13] }}    
-        {{ doctor.practices[0].insurance_uids[14] }}    
-        {{ doctor.practices[0].insurance_uids[15] }}    
-        {{ doctor.practices[0].insurance_uids[16] }}    
-        {{ doctor.practices[0].insurance_uids[17] }}    
-        {{ doctor.practices[0].insurance_uids[18] }}    
-        {{ doctor.practices[0].insurance_uids[19] }}    
-        {{ doctor.practices[0].insurance_uids[20] }}    
-        {{ doctor.practices[0].insurance_uids[21] }}    
-        {{ doctor.practices[0].insurance_uids[22] }}    
-        {{ doctor.practices[0].insurance_uids[23] }}    
-        {{ doctor.practices[0].insurance_uids[24] }}    
-        {{ doctor.practices[0].insurance_uids[25] }}    
-        {{ doctor.practices[0].insurance_uids[26] }}    
-        {{ doctor.practices[0].insurance_uids[27] }}    
-        {{ doctor.practices[0].insurance_uids[28] }}    
-        {{ doctor.practices[0].insurance_uids[29] }}    
-        {{ doctor.practices[0].insurance_uids[30] }}    
-        {{ doctor.practices[0].insurance_uids[31] }}    
-        {{ doctor.practices[0].insurance_uids[32] }}    
-        {{ doctor.practices[0].insurance_uids[33] }}    
-        {{ doctor.practices[0].insurance_uids[34] }}    
-        {{ doctor.practices[0].insurance_uids[35] }}    
-        {{ doctor.practices[0].insurance_uids[36] }}    
-        {{ doctor.practices[0].insurance_uids[37] }}    
-        {{ doctor.practices[0].insurance_uids[38] }}    
-        {{ doctor.practices[0].insurance_uids[39] }}    
-        {{ doctor.practices[0].insurance_uids[40] }}    
-        {{ doctor.practices[0].insurance_uids[41] }}    
-        {{ doctor.practices[0].insurance_uids[42] }}    
-        {{ doctor.practices[0].insurance_uids[43] }}    
-        {{ doctor.practices[0].insurance_uids[44] }}    
-        {{ doctor.practices[0].insurance_uids[45] }}    
-        {{ doctor.practices[0].insurance_uids[46] }}    
-        {{ doctor.practices[0].insurance_uids[47] }}    
-        {{ doctor.practices[0].insurance_uids[48] }}    
-        {{ doctor.practices[0].insurance_uids[49] }}    
-        {{ doctor.practices[0].insurance_uids[50] }}    
-        {{ doctor.practices[0].insurance_uids[51] }}    
-        {{ doctor.practices[0].insurance_uids[52] }}    
-        {{ doctor.practices[0].insurance_uids[53] }}    
-        {{ doctor.practices[0].insurance_uids[54] }}    
-        {{ doctor.practices[0].insurance_uids[55] }}    
-        {{ doctor.practices[0].insurance_uids[56] }}    
-        {{ doctor.practices[0].insurance_uids[57] }}    
-        {{ doctor.practices[0].insurance_uids[58] }}    
-        {{ doctor.practices[0].insurance_uids[59] }}    
-        {{ doctor.practices[0].insurance_uids[60] }}    
-      </textarea>
-    </div>
-  </div>
 </div>

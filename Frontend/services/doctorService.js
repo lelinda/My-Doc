@@ -3,7 +3,7 @@ app.service("doctorService", function ($http) {
   this.getDoctorsApi = function (name, specialty, coords) {
     console.log(name + " and " + specialty + " " + coords);
     return $http.get("http://localhost:5000/api/doctor?name=" + name + "&specialty_uid=" + specialty + "&location=" + coords)
-  }
+  };
 
   var _location = ""; //address for geocode
   // google maps geocode call
@@ -14,8 +14,8 @@ app.service("doctorService", function ($http) {
         key: 'AIzaSyABBleRUqFda2vbGC2oDLFT7z46fCnYfow'
       }
     });
-
-  }
+  };
+  
   // Get one by Id
   this.getDoctorById = function (id, cb) {
     if (id == "" || id == undefined || id == null) {
@@ -28,7 +28,7 @@ app.service("doctorService", function ($http) {
           cb(response.data)
         }, function (error) {
           console.log(error);
-        })
-    }
-  }
-})
+        });
+    };
+  };
+});
