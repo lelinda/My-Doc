@@ -3,7 +3,6 @@ app.controller("doctorController", function ($scope, $state, $stateParams, $http
   var map = null;
   $scope.locationRequired = true;
   $scope.getDoctors = function () {
-    $state.go("doctorsView"); // after clicking search button, directs to doctors-view list
     if ($scope.searchedLocation == undefined) {
       console.log("Empty");
       $scope.locationRequired = false;

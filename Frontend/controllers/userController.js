@@ -167,6 +167,7 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
             $scope.errorMessage = false;
             userService.setCurrentUser(response.data[i].id);
             $state.go("doctors");
+            break; // stops error message in else block from running if log in is correct
           }
           else {
             $scope.errorMessage = true;

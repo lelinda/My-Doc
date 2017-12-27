@@ -40,16 +40,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             controller: "doctorController"
         })
 
-        // Show list of doctors searched
-        .state("doctorsView", {
-            url: "/doctors/view",
-            templateUrl: "./views/doctors-view.html",
-            controller: "doctorController"
-        })
-
-        // Show doctor by ID
+        // Show doctor by ID after clicking on google maps marker
         .state("doctor", {
-            url: "/doctors/view/:id",
+            url: "/doctors/:id",
             templateUrl: "./views/doctor.html",
             controller: "doctorController"
         })
