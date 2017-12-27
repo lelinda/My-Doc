@@ -393,6 +393,8 @@ select {
 
 /* Google maps */
 #mapMain {
+    margin-left: 12.5%;
+    margin-right: 12.5%;
     width: 75%;
     height: 400px;
 }
