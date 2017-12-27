@@ -16,7 +16,7 @@ namespace Backend.Controllers
       Console.WriteLine(name + " " + specialty_uid + " " + location);
       WebClient client = new WebClient();
 
-      string response = client.DownloadString("https://api.betterdoctor.com/2016-03-01/doctors?name=" + name + "&specialty_uid=" + specialty_uid + "&location=" + location + "%2C100&skip=0&limit=20&user_key=efe95df06a0afcd63f78c2b81c58fb4c");
+      string response = client.DownloadString("https://api.betterdoctor.com/2016-03-01/doctors?name=" + name + "&query=" + specialty_uid + "&location=" + location + "%2C100&skip=0&limit=20&user_key=efe95df06a0afcd63f78c2b81c58fb4c");
 
       return response;
     }
