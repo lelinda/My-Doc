@@ -21,6 +21,7 @@ namespace Backend.Controllers
                 _context.Users.Add (new User () { Id = 1, FirstName = "Linda", LastName = "Le", Email = "lindale@gmail.com", Password = "abc123", ConfirmPassword = "abc123" });
                 _context.Users.Add (new User () { Id = 2, FirstName = "Darlene", LastName = "Kim", Email = "darlenekim@gmail.com", Password = "abc123", ConfirmPassword = "abc123" });
                 _context.Users.Add (new User () { Id = 3, FirstName = "Ryan", LastName = "Field", Email = "ryanfield@gmail.com", Password = "abc123", ConfirmPassword = "abc123" });
+                _context.Users.Add (new User () { Id = 4, FirstName = "Bob", LastName = "Bob", Email = "bob@gmail.com", Password = "bob", ConfirmPassword = "bob" });
 
                 _context.SaveChanges ();
             }
@@ -34,7 +35,7 @@ namespace Backend.Controllers
             return _context.Users.ToList ();
         }
 
-        //// GET api/values/5
+        // GET api/values
         [HttpGet ("{id}")]
         public User Get (int id)
         {

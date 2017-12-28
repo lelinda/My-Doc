@@ -34,6 +34,7 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
   $scope.lastNameReq = false;
   $scope.emailReq = false;
   $scope.passwordReq = false;
+  $scope.errorBorder = false;
 
   // If passwords do not match error message in the new user form (hidden as default)
   $scope.passwordError = false;
@@ -51,8 +52,10 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
     // Checks if fields are empty, form validation error message will show, otherwise, it will stay hidden
     if ($scope.user.firstName == "" || $scope.user.firstName == null) {
       $scope.firstNameReq = true;
+      $scope.errorBorder = true;
     } else {
       $scope.firstNameReq = false;
+      $scope.errorBorder = false;
     };
     if ($scope.user.lastName == "" || $scope.user.lastName == null) {
       $scope.lastNameReq = true;
@@ -167,6 +170,7 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
             $scope.errorMessage = false;
             userService.setCurrentUser(response.data[i].id);
             $state.go("doctors");
+            break; // stops error message in else block from running if log in is correct
           }
           else {
             $scope.errorMessage = true;

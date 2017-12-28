@@ -1,31 +1,64 @@
 <div ng-controller="userController" class="container">
-  <div class="col-sm-6 col-sm-offset-5">
-    <div class="row">
-      <h1 class="myDoc">MyDoc</h1>
+    <div class="col-sm-6 col-sm-offset-5">
+        <div class="row">
+            <h1 class="myDoc">MyDoc</h1>
+        </div>
+        <div class="row">
+            <h1 class="meh">Feeling meh? Find a doctor.</h1>
+        </div>
+        <div class="row">
+            <p class="bio">Screw calling your list of doctors, only to find out they don't accept your insurance or are too far of a drive!
+                MyDoc takes care of that. Put in your zip code or type in the name of your prospective Doc. Your search on
+                our application will yield awesome results.</p>
+        </div>
+        <div class="row">
+            <p class="begin">Sign in below to begin your search. </br>
+                New to
+                <strong class="doc">MyDoc?</strong>
+                <a ui-sref="userCreate" class="home">Click here</a> to create an account.</p>
+        </div>
+        <div class="row log">
+            <div class="input-group">
+                <input type="text" class="login form" placeholder="email address" ng-model="user.email" ng-change="user.email = (user.email | lowercase)">
+                <input type="password" id="login" class="login form" placeholder="password" ng-model="user.password">
+                <span class="form input-group-addon btn" ng-click="login(user)">Login</span>
+            </div>
+        </div>
+        <div class="row">
+            <p ng-show="errorMessage" class="red-text">Invalid username or password. Try again.</p>
+        </div>
     </div>
-    <div class="row">
-      <h1 class="meh">Feeling meh? Find a doctor.</h1>
-    </div>
-    <div class="row">
-      <p class="bio">Screw calling your list of doctors, only to find out they don't accept your insurance or are too far of a drive! MyDoc
-        takes care of that. Put in your zip code or type in the name of your prospective Doc. Your search on our application
-        will yield awesome results.</p>
-    </div>
-    <div class="row">
-      <p class="begin">Sign in below to begin your search. </br>
-        New to
-        <strong class="doc">MyDoc?</strong>
-        <a ui-sref="userCreate" class="home">Click here</a> to create an account.</p>
-    </div>
-    <div class="row log">
-      <div class="input-group">
-        <input type="text" class="login form" placeholder="email address" ng-model="user.email" ng-change="user.email = (user.email | lowercase)">
-        <input type="password" id="login" class="login form" placeholder="password" ng-model="user.password">
-        <span class="form input-group-addon btn" ng-click="login(user)">Login</span>
-      </div>
-    </div>
-    <div class="row">
-      <p ng-show="errorMessage" class="red-text">Invalid username or password. Try again.</p>
-    </div>
-  </div>
 </div>
+
+<!--   FOOTER START================== -->
+<footer class="footer">
+    <div class="container1">
+        <div class="row">
+            <div class="col-lg-6">
+                <h4 class="title">Mission Statement</h4>
+                <p class="about">
+                    Healthcare is critical, time is money and money is time. Here at myDoc, we work at micro speed with efficiency. Delivering
+                    accurate information is a key feature of ours, you won't find dead links to doctors you've come across.
+                    Our site ensures that you will be able to find a doctor of your desired specialty and whether they do
+                    or do not accept your insurance.
+                </p>
+            </div>
+
+            <!-- <div class="col-lg-4">
+                <h4 class="title">About MyDoc</h4>
+                <p class="about">MyDoc is a rapidly prototyped web application that is used for educational purposes. MyDoc was created in less than 2 weeks. </p>
+            </div> -->
+
+            <div class="col-lg-6">
+                <h4 class="title">Contact</h4>
+                <p class="about">Want to contact us? Feel free to send us an email at mydoc@support.com. We are also located at: 2850 Red
+                    Hill Avenue, Santa Ana, CA.
+                </p>
+            </div>
+        </div>
+        <hr>
+        <div class="row text-center">Made with
+            <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> by Linda, Darlene, & Ryan</a>
+        </div>
+    </div>
+</footer>
