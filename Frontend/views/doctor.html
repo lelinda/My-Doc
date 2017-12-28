@@ -1,121 +1,90 @@
-<divclass="container">
-  <div class="col-sm-4 col-sm-offset-9">
+<div id="wrapper" class="container" style="padding-bottom: 20px;">
+  <div class="col-sm-4 col-sm-offset-9" style="margin-bottom: 50px">
     <a ui-sref="account" class="nav">Profile</a>
-    <a ui-sref="doctorsView" class="nav">Back</a>
+    <a ui-sref="doctors" class="nav">Back</a>
     <a ui-sref="logout" class="nav">Logout</a>
   </div>
-  <div class="col-sm-6 col-sm-offset-5">
-    <h1 class="heading">Doctor</h1>
-  </div>
-  <div class="col-sm-12">
-    <h3 class="head">{{ doctor.profile.first_name + ' ' + doctor.profile.middle_name + ' ' + ' ' + doctor.profile.last_name + ', ' + doctor.profile.title
-      }}</h3>
-    <div class="col-sm-12">
-      <p>
-        <strong>Bio: </strong>{{ doctor.profile.bio }}</p>
-    </div>
-    <div class="col-sm-4">
-      <p>
-        <strong>Specialty: </strong>{{ doctor.specialties[0].name }}</p>
-      <p>
-        <strong></strong>{{ doctor.specialties[1].name }}</p>
-      <p>
-        <strong></strong>{{ doctor.specialties[2].name }}</p>
-      <p>
-        <strong>Gender: </strong>{{ doctor.profile.gender }}</p>
-      <p>
-        <strong>NPI: </strong>{{ doctor.npi }}</p>
-    </div>
-    <div class="col-sm-4">
-      <p>
-        <strong>License: </strong>{{ doctor.licenses[0].state + ' ' + doctor.licenses[1].number }}</p>
-      <p>
-        <strong>Facility Name: </strong>{{ doctor.practices[0].name }}</p>
-      <p>
-        <strong>Accepting New Patients? </strong>{{ doctor.practices[0].accepts_new_patients }}</p>
-      <p>
-        <strong>Address: </strong>{{ doctor.practices[0].visit_address.street + ' ' + doctor.practices[0].visit_address.street2 +
-        ', ' + doctor.practices[0].visit_address.city + ', ' + doctor.practices[0].visit_address.state + ' ' + doctor.practices[0].visit_address.zip
-        }}
-      </p>
-    </div>
-    <div class="col-sm-4">
-      <p>
-        <strong>Phone Number: </strong>{{ doctor.practices[0].phones[0].number }}</p>
-      <p>
-        <strong>Fax Number: </strong>{{ doctor.practices[0].phones[1].number }}</p>
-      <p>
-        <strong>Language(s) Spoken: </strong>{{ doctor.practices[0].languages[0].name }}</p>
-      <p>{{ doctor.practices[0].languages[1].name }}</p>
-      <p>{{ doctor.practices[0].languages[2].name }}</p>
-    </div>
-    <div class="col-sm-12">
-      <p>
-        <strong>Insurance(s) Accepted: </strong>
-      </p>
-      <select type="text" class="col-sm-12" rows="10" readOnly="true">
-        <option>{{ doctor.practices[0].insurance_uids[0] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[1] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[2] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[3] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[4] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[5] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[6] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[7] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[8] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[9] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[10] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[11] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[12] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[13] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[14] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[15] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[16] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[17] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[18] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[19] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[20] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[21] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[22] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[23] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[24] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[27] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[28] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[29] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[30] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[31] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[32] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[33] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[34] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[35] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[36] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[37] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[38] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[39] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[40] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[41] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[42] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[43] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[44] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[45] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[46] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[47] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[48] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[49] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[50] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[51] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[52] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[53] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[54] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[55] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[56] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[57] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[58] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[59] }}</option>
-        <option>{{ doctor.practices[0].insurance_uids[60] }}</option>
-      </select>
+  <div class="wrapper">
+    <div class="background col-sm-12">
+      <div class="col-sm-6 drPad">
+        <h3 class="drTitle">{{ doctor.profile.first_name + ' ' + doctor.profile.middle_name + ' ' + ' ' + doctor.profile.last_name + ', ' + doctor.profile.title
+          }}</h3>
+        <div id="doctor-map"></div>
+      </div>
+      <div class="col-sm-6 descPad">
+        <div class="row">
+          <p class="description"><strong class="uppercase">Bio: </strong>{{ doctor.profile.bio }}</p>
+        </div>
+        <div class="row">
+          <p class="description"><strong class="uppercase">Specialty: </strong>{{ doctor.specialties[0].name }}</p>
+          <p class="description">{{ doctor.specialties[1].name }}</p>
+          <p class="description">{{ doctor.specialties[2].name }}</p>
+        </div>
+        <div class="row">
+          <p class="description"><strong class="uppercase">Description: </strong>{{ doctor.specialties[0].description }}</p>
+          <p class="description">{{ doctor.specialties[1].description }}</p>
+          <p class="description">{{ doctor.specialties[2].description }}</p>
+        </div>
+        <div class="row">
+          <p class="description"><strong class="uppercase">Gender: </strong>{{ doctor.profile.gender }}</p>
+        </div>
+        <div class="row">
+          <p class="description"><strong class="uppercase">NPI: </strong>{{ doctor.npi }}</p>
+        </div>
+        <div class="row">
+          <p class="description"><strong class="uppercase">License: </strong>{{ doctor.licenses[0].state + ' ' + doctor.licenses[1].number }}</p>
+        </div>
+        <div class="row">
+          <p class="description"><strong class="uppercase">Facility Name: </strong>{{ doctor.practices[0].name }}</p>
+        </div>
+        <div class="row">
+          <p class="description"><strong class="uppercase">Accepting New Patients? </strong>{{ doctor.practices[0].accepts_new_patients }}</p>
+        </div>
+        <div class="row">
+          <p class="description"><strong class="uppercase">Address: </strong>{{ doctor.practices[0].visit_address.street + ' ' + doctor.practices[0].visit_address.street2
+            + ', ' + doctor.practices[0].visit_address.city + ', ' + doctor.practices[0].visit_address.state + ' ' + doctor.practices[0].visit_address.zip
+            }}</p>
+        </div>
+        <div class="row">
+          <p class="description"><strong class="uppercase">Phone Number: </strong>{{ doctor.practices[0].phones[0].number }}</p>
+        </div>
+        <div class="row">
+          <p class="description"><strong class="uppercase">Fax Number: </strong>{{ doctor.practices[0].phones[1].number }}</p>
+        </div>
+        <div class="row">
+          <p class="description"><strong class="uppercase">Language(s) Spoken: </strong>{{ doctor.practices[0].languages[0].name }}</p>
+          <p class="description">{{ doctor.practices[0].languages[1].name }}</p>
+          <p class="description">{{ doctor.practices[0].languages[2].name }}</p>
+        </div>
+        <div class="row">
+          <p class="description"><strong class="uppercase">Insurance(s) Accepted: </strong></p>
+        </div>
+        <div class="row">
+          <select type="text" class="select">
+            <option>{{ doctor.practices[0].insurance_uids[0] }}</option>
+            <option>{{ doctor.practices[0].insurance_uids[1] }}</option>
+            <option>{{ doctor.practices[0].insurance_uids[2] }}</option>
+            <option>{{ doctor.practices[0].insurance_uids[3] }}</option>
+            <option>{{ doctor.practices[0].insurance_uids[4] }}</option>
+            <option>{{ doctor.practices[0].insurance_uids[5] }}</option>
+            <option>{{ doctor.practices[0].insurance_uids[6] }}</option>
+            <option>{{ doctor.practices[0].insurance_uids[7] }}</option>
+            <option>{{ doctor.practices[0].insurance_uids[8] }}</option>
+            <option>{{ doctor.practices[0].insurance_uids[9] }}</option>
+            <option>{{ doctor.practices[0].insurance_uids[10] }}</option>
+            <option>{{ doctor.practices[0].insurance_uids[11] }}</option>
+            <option>{{ doctor.practices[0].insurance_uids[12] }}</option>
+            <option>{{ doctor.practices[0].insurance_uids[13] }}</option>
+            <option>{{ doctor.practices[0].insurance_uids[14] }}</option>
+            <option>{{ doctor.practices[0].insurance_uids[15] }}</option>
+            <option>{{ doctor.practices[0].insurance_uids[16] }}</option>
+            <option>{{ doctor.practices[0].insurance_uids[17] }}</option>
+            <option>{{ doctor.practices[0].insurance_uids[18] }}</option>
+            <option>{{ doctor.practices[0].insurance_uids[19] }}</option>
+            <option>{{ doctor.practices[0].insurance_uids[20] }}</option>
+          </select>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<div id="doctor-map"></div>
 </div>
