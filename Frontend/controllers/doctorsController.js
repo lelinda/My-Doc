@@ -72,28 +72,38 @@ app.controller("doctorsController", function ($scope, $state, $stateParams, $htt
             });
             for (var i = 0; i < response.data.data.length; i++) {
               $scope.docs.push(response.data.data[i]);
+              console.log(response.data.data[i].profile.first_name)
               var contentString =
                 '<div id="content">' +
                 '<div id="siteNotice">' +
                 '</div>' +
-                '<h1 id="firstHeading" class="firstHeading">' + response.data.data[i].profile.first_name + ' ' + response.data.data[i].profile.middle_name + ' ' + response.data.data[i].profile.last_name + ', ' + response.data.data[i].profile.title + '</h1>' +
+                '<h1 id="firstHeading" class="firstHeading">' + response.data.data[i].profile.first_name + ' ' + response.data.data[i].profile.last_name + ', ' + response.data.data[i].profile.title + '</h1>' +
                 '<div id="bodyContent">' +
                 '<p>' + response.data.data[i].profile.bio + '</p>' +
                 '<p><strong>' + response.data.data[i].specialties[0].name + '</strong></p>' +
                 '<div class="map-click"ng-click="doctorTest(' + i + ')">VIEW DOCTOR INFORMATION</div>' +
                 '</div>' +
                 '</div>';
-              var compiled = $compile(contentString)($scope);
-              var infowindow = new google.maps.InfoWindow({
-                content: compiled[0]
-              });
+              
+              console.log($scope.docs);
+              
               var marker = new google.maps.Marker({
                 position: new google.maps.LatLng(response.data.data[i].practices[0].lat, response.data.data[i].practices[0].lon),
                 map: map
               });
-              marker.addListener('click', function () {
-                infowindow.open(map, marker);
+              var infowindow = new google.maps.InfoWindow({
+                // content = content
               });
+              var compiled = $compile(contentString)($scope);
+              var content = compiled[0]
+              google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){ 
+                infowindow.close(marker);
+                return function() {
+                  infowindow.setContent(content);
+                  infowindow.open(map,marker);
+                }
+              }
+            )(marker,content,infowindow));
             };
             console.log("initMap end");
           }, function (error) {
