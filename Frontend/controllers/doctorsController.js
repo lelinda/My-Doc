@@ -2,9 +2,11 @@ app.controller("doctorsController", function ($scope, $state, $stateParams, $htt
   // doctor search function
   var map = null;
   $scope.mapShow = true;
+  $scope.mapBackground = true;
   $scope.locationRequired = true;
   $scope.getDoctors = function () {
     $scope.mapShow = false;
+    $scope.mapBackground = false;
     if ($scope.searchedLocation == undefined) {
       console.log("Empty");
       $scope.locationRequired = false;
@@ -77,10 +79,10 @@ app.controller("doctorsController", function ($scope, $state, $stateParams, $htt
                 '<div id="siteNotice">' +
                 '</div>' +
                 '<h1 id="firstHeading" class="firstHeading">' + response.data.data[i].profile.first_name + ' ' + response.data.data[i].profile.middle_name + ' ' + response.data.data[i].profile.last_name + ', ' + response.data.data[i].profile.title + '</h1>' +
+                '<p class="specialtyName">' + response.data.data[i].specialties[0].name + '</p>' +
                 '<div id="bodyContent">' +
-                '<p>' + response.data.data[i].profile.bio + '</p>' +
-                '<p><strong>' + response.data.data[i].specialties[0].name + '</strong></p>' +
-                '<div class="map-click"ng-click="doctorTest(' + i + ')">VIEW DOCTOR INFORMATION</div>' +
+                '<p class="doctorDescription">' + response.data.data[i].profile.bio + '</p>' +
+                '<a class="map-click" ng-click="doctorTest(' + i + ')">+ more info</a>' +
                 '</div>' +
                 '</div>';
               var compiled = $compile(contentString)($scope);

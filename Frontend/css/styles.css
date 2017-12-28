@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     color: gray;
+    cursor: crosshair;
     font-size: 14px;
     letter-spacing: 0.5px;
     margin: 0 auto;
@@ -18,13 +19,47 @@ body {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    position: relative;
     margin: 0 auto;
+    position: relative;
+}
+
+html, body {
+    height: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.2);
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.8);
 }
 
 /* All placeholder input fields */
 ::placeholder {
     color: gray;
+}
+
+#container {
+    width: 80%;
 }
 
 /* MyDoc Title */
@@ -34,7 +69,7 @@ body {
     font-size: 80px;
     font-weight: 800;
     letter-spacing: 15px;
-    margin: 50px 0 30px 0;
+    margin: 30px 0 20px 0;
     text-align: center;
     text-transform: uppercase;
 }
@@ -82,20 +117,23 @@ strong.doc {
 
 /* "Click here" link */
 a.home {
-    border-bottom: 1px solid darkblue;
-    color: darkblue;
+    border-bottom: 1px solid #347ab7;
+    color: #347ab7;
+    cursor: alias;
     font-size: 13px;
     font-weight: 400;
 }
 
 /* "Click here" link, visited, active */
 a.home:link:visited:active {
-    border-bottom: 1px solid darkblue;
+    border-bottom: 1px solid #347ab7;
+    cursor: alias;
 }
 
 /* "Click here" hover */
 a.home:hover {
-    border-bottom: 1px dotted darkblue;
+    border-bottom: 1px dotted #347ab7;
+    cursor: alias;
 }
 
 /* Log in box */
@@ -105,12 +143,13 @@ a.home:hover {
     margin-left: 25%;
 }
 
-/* Log in box */
+/* Log in box fields */
 .login {
     background: transparent;
     border: 1px solid white;
     border-right: none;
     color: white;
+    cursor: auto;
     font-family: 'Poppins', sans-serif;
     font-size: 11px;
     height: 26px;
@@ -134,6 +173,7 @@ a.home:hover {
 .input-group-addon:hover {
     background-color: rgba(255, 255, 255, 0.7);
     color: gray;
+    cursor: cell;
 }
 
 /* Log in box removes border on click */
@@ -173,6 +213,7 @@ input {
     border: 1px solid white;
     border-radius: 5px;
     color: white;
+    cursor: auto;
     height: 35px;
     letter-spacing: 1px;
     margin-top: 5px;
@@ -201,6 +242,7 @@ input {
 .update:hover {
     background: rgb(167, 209, 231);
     color: white;
+    cursor: cell;
 }
 
 /* Updated user cancel button */
@@ -223,6 +265,7 @@ input {
 .cancel:hover {
     background: rgba(226, 213, 197, 0.8);
     color: white;
+    cursor: cell;
 }
 
 /* Update profile button */
@@ -243,6 +286,7 @@ input {
 .success:hover {
     background: rgba(167, 209, 231, 0.8);
     color: white;
+    cursor: cell;
 }
 
 /* Delete profile button */
@@ -263,6 +307,7 @@ input {
 .danger:hover {
     background: rgba(253, 193, 195, 0.8);
     color: white;
+    cursor: cell;
 }
 
 /* Nav bar */
@@ -302,12 +347,29 @@ a.nav {
     color: white;
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
+    cursor: cell;
+}
+
+/* Locate doctor header background */
+#locate {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    color: gray;
+    line-height: 35px;
+    margin-top: 60px;
+    padding: 15px 0;
+}
+
+/* Search for doctors input fields */
+#doctorSearch {
+    margin-top: 5px;
 }
 
 /* Search for doctors input fields */
 .doctorSearch {
     border-radius: 5px;
     color: #999;
+    cursor: auto;
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
     height: 35px;
@@ -317,30 +379,21 @@ a.nav {
     text-align: center;
     width: 100%;
 }
-
 /* Search for doctors button */
 .searchButton {
-    background-color: rgba(219, 230, 198, 0.6);
-    border: none;
-    border-radius: 5px;
-    color: white;
+    color: #347ab7;
+    cursor: alias;
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
-    font-weight: 500;
-    height: 35px;
-    letter-spacing: 1px;
-    margin-top: 5px;
-    outline: none;
-    padding: 5px;
-    text-transform: uppercase;
+    margin-top: 12px;
     text-align: center;
-    width: 100%;
+    text-decoration: underline;
 }
 
 /* Search for doctors button on hover */
 .searchButton:hover {
-    background-color: rgba(219, 230, 198, 0.8);
-    color: white;
+    color: #347ab7;
+    cursor: alias;
 }
 
 /* Doctors in your area */
@@ -381,117 +434,205 @@ select {
     text-align-last: center;
 }
 
+/* Insurance select list on single doctor view */
+.select {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    height: 30px;
+    letter-spacing: 1px;
+    margin: 5px 0 20px 0;
+    text-align-last: center;
+    width: 75%;
+}
+
+/* Single doctor view */
+.drPad {
+    margin-top: 10px;
+}
+
+/* Single doctor view */
+.descPad {
+    margin-top: 30px;
+}
+
+/* Doctor title on single doctor view */
+.drTitle {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    width: 90%;
+    padding: 15px 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
 /* Wraps doctors list */
 .wrapper {
     height: 100%;
     margin: 0 auto;
     position: relative;
-    width: 80%;
+    width: 90%;
 }
 
 /* Adds background to doctors list of info */
 .background {
     background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 5px 30px;
     height: 100%;
 }
-.map-click{
-    cursor: pointer;
-    color: blue;
+
+/* Background behind google maps location*/
+.bg {
+    background-color:rgba(255, 255, 255, 0.5);
+    border: 10px solid rgba(255, 255, 255, 0.3);
+    display: table;
+    margin-top: 50px;
+    height: 400px;
+    width: 55%;
+    margin-left: 5%;
+}
+
+/* Google maps location centering words onto background */
+.location {
+    display: table-cell;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle; 
+}
+
+/* More doctor info link */
+a.map-click {
+    border-bottom: 1px solid #347ab7;
+    color: #347ab7;
+    cursor: alias;
+    float: right;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+/* More doctor info link on hover */
+a.map-click:hover {
+    border-bottom: 1px dotted #347ab7;
+    color: #347ab7;
+    cursor: alias;
 }
 
 /* Google maps */
 #mapMain {
     background-color:rgba(255, 255, 255, 0.5);
     border: 10px solid rgba(255, 255, 255, 0.3);
-    height: 350px;
+    height: 400px;
     margin-top: 50px;
     margin-bottom: 40px;
-    margin-left: 12.5%;
-    margin-right: 12.5%;
-    width: 75%;
-    height: 400px;
+    margin-left: 6%;
+    width: 85%;
 }
-#doctor-map {
-    margin-left: 12.5%;
-    margin-right: 12.5%;
-    width: 75%;
-    height: 400px;
 
+/* Single doctor google maps view */
+#doctor-map {
+    background-color:rgba(255, 255, 255, 0.5);
+    border: 10px solid rgba(255, 255, 255, 0.1);
+    height: 450px;
+    /* margin-left: 12.5%; */
+    /* margin-right: 12.5%; */
+    width: 90%;
+}
+
+.uppercase {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.description {
+    font-weight: 200;
+}
+
+/* Doctor's info on google maps marker */
 #content {
     padding-bottom: 15px;
     text-align: center;
 }
 
+/* Doctor's name & title on google maps marker */
 .firstHeading {
     font-family: 'Poppins', sans-serif;
 }
 
+/* Specialty on google maps marker */
 .specialtyName {
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
     text-transform: uppercase;
 }
 
+/* Doctor's bio on google maps marker */
 .doctorDescription {
     font-family: 'Pavanam', sans-serif;
+    text-align: justify;
 }
 
-/*FOOTER START///////////////////*/
-.footer {
-    padding: 50px 0 20px 0;
-    background-color: #878c94;
+/* FOOTER */
+
+#footer {
+    bottom: 0;
+    height: 20px;
+    margin: 0 auto;
+    position: absolute;
+    width: 100%;
+}
+
+.title {
+    color: gray;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
     text-align: center;
-    color: white;
+    text-transform: uppercase;
+}
+
+#body {
+    padding-bottom: 10px;
+}
+
+.mission {
+    color: gray;
+    font-size: 9px;
     font-family: 'Poppins', sans-serif;
-}
-
-.footer .title {
+    letter-spacing: 1px;
+    line-height: 13px;
     text-align: center;
-    color: #fff;
-    font-size: 25px;
 }
 
 .about {
-    color: #fff;
-    padding: 20px;
+    color: gray;
+    font-size: 9px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    line-height: 13px;
     text-align: center;
 }
 
-.footer .text-center {
-    color: #fff;
+.devs {
+    color: gray;
+    font-family: 'Poppins', sans-serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+    line-height: 15px;
+    text-align: center;
 }
 
 .glyphicon-heart {
-    color: #fff;
+    color: gray;
+    font-size: 12px;
 }
 
-.footer .social-icon a {
-    display: inline-block;
-    color: #fff;
-    font-size: 25px;
-    padding: 5px;
-}
-
-.footer .acount-icon a {
-    display: block;
-    color: #fff;
-    font-size: 18px;
-    padding: 5px;
-    text-decoration: none;
-}
-
-.footer .acount-icon .fa {
-    margin-right: 25px;
-}
-
-.footer .category a {
-    text-decoration: none;
-    color: #fff;
-    display: inline-block;
-    padding: 5px 20px;
-    margin: 1px;
-    border-radius: 4px;
-    margin-top: 6px;
-    background-color: black;
-    border: solid 1px #fff;
+.fa-copyright {
+    color: gray;
 }

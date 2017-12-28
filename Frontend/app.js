@@ -40,13 +40,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             controller: "doctorsController"
         })
 
-        // Show list of doctors searched
-        .state("doctorsView", {
-            url: "/doctors/view",
-            templateUrl: "./views/doctors-view.html",
-            controller: "doctorsController"
-        })
-
         // Show doctor by ID
         .state("doctor", {
             url: "/doctor",

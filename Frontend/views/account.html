@@ -1,4 +1,4 @@
-<div ng-controller="accountController" class="container">
+<div id="wrapper" ng-controller="accountController" class="container">
   <div class="col-sm-4 col-sm-offset-9">
     <a ui-sref="doctors" class="nav">Doctors</a>
     <a ng-click="logout()" class="nav">Logout</a>
@@ -10,22 +10,13 @@
   </div>
   <div class="col-sm-4 col-sm-offset-6">
     <div class="row">
-      <p class="userInfo" ng-model="user.firstName">
-        <strong class="pad">First Name</strong>
-        </br>
-        {{ loadedUser.firstName | uppercase }}</p>
+      <p class="userInfo" ng-model="user.firstName"><strong class="pad">First Name</strong></br> {{ loadedUser.firstName | uppercase }}</p>
     </div>
     <div class="row">
-      <p class="userInfo" ng-model="user.lastName">
-        <strong class="pad">Last Name</strong>
-        </br>
-        {{ loadedUser.lastName | uppercase }}</p>
+      <p class="userInfo" ng-model="user.lastName"><strong class="pad">Last Name</strong></br> {{ loadedUser.lastName | uppercase }}</p>
     </div>
     <div class="row">
-      <p class="userInfo" ng-model="user.email">
-        <strong class="pad">Email Address</strong>
-        </br>
-        {{ loadedUser.email | uppercase }}</p>
+      <p class="userInfo" ng-model="user.email"><strong class="pad">Email Address</strong></br> {{ loadedUser.email | uppercase }}</p>
     </div>
     <div class="row">
       <button class="success btn btn-sm" ui-sref="userUpdate({id: loadedUser.id})">Update</button>
