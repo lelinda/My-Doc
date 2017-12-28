@@ -31,4 +31,13 @@ app.service("doctorService", function ($http) {
         });
     };
   };
+  var _thisDoctor = {};
+  this.setDoctor = function(doctor){
+    _thisDoctor = doctor;
+    console.log(_thisDoctor);
+  }
+  this.returnDoctor = function(){
+    return _thisDoctor;
+  }
+
 });

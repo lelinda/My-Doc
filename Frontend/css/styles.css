@@ -390,9 +390,19 @@ select {
     background-color:rgba(255, 255, 255, 0.5);
     height: 100%;
 }
+.map-click{
+    cursor: pointer;
+    color: blue;
+}
 
 /* Google maps */
 #mapMain {
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+    width: 75%;
+    height: 400px;
+}
+#doctor-map {
     margin-left: 12.5%;
     margin-right: 12.5%;
     width: 75%;
