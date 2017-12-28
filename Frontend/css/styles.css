@@ -8,7 +8,7 @@
 }
 
 /* Background image */
-body { 
+body {
     background-image: url("doctor.jpg");
     background-size: cover;
     background-position: center center;
@@ -21,7 +21,6 @@ body {
     position: relative;
     margin: 0 auto;
 }
-
 
 /* All placeholder input fields */
 ::placeholder {
@@ -37,16 +36,19 @@ body {
     letter-spacing: 15px;
     margin: 50px 0 30px 0;
     text-align: center;
-    text-transform:  uppercase;
+    text-transform: uppercase;
 }
 
+
 /* Feeling meh header */
+
 .meh {
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
     margin-bottom: 20px;
     text-align: center;
 }
+
 
 /* Description on homepage */
 .bio {
@@ -73,9 +75,9 @@ body {
 
 /* MyDoc? text */
 strong.doc {
-    color: white; 
+    color: white;
     font-size: 13px;
-    font-weight: 400; 
+    font-weight: 400;
 }
 
 /* "Click here" link */
@@ -119,7 +121,7 @@ a.home:hover {
 
 /* Login button */
 .input-group-addon {
-    background-color:rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.5);
     border: 1px solid white;
     color: gray;
     font-family: 'Poppins', sans-serif;
@@ -130,7 +132,7 @@ a.home:hover {
 
 /* Login button on hover */
 .input-group-addon:hover {
-    background-color:rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.7);
     color: gray;
 }
 
@@ -147,7 +149,6 @@ input {
     padding: 0;
     text-align: center;
 }
-
 
 /* MyDoc Sign Up header */
 .heading {
@@ -168,12 +169,12 @@ input {
 
 /* New user input fields */
 .input {
-    background-color:rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     border: 1px solid white;
     border-radius: 5px;
     color: white;
     height: 35px;
-    letter-spacing: 1px; 
+    letter-spacing: 1px;
     margin-top: 5px;
     outline: none;
     text-align: center;
@@ -188,7 +189,7 @@ input {
     display: inline-block;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    letter-spacing: 1px; 
+    letter-spacing: 1px;
     margin-top: 10px;
     outline: none;
     text-align: center;
@@ -210,7 +211,7 @@ input {
     display: inline-block;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    letter-spacing: 1px; 
+    letter-spacing: 1px;
     margin-top: 10px;
     outline: none;
     text-align: center;
@@ -231,7 +232,7 @@ input {
     display: inline-block;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    letter-spacing: 1px; 
+    letter-spacing: 1px;
     outline: none;
     text-align: center;
     text-transform: uppercase;
@@ -251,7 +252,7 @@ input {
     display: inline-block;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    letter-spacing: 1px; 
+    letter-spacing: 1px;
     outline: none;
     text-align: center;
     text-transform: uppercase;
@@ -294,7 +295,7 @@ a.nav {
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
 }
-  
+
 /* Nav bar on hover */
 .nav:hover {
     background: rgba(255, 255, 255, 0.3);
@@ -310,7 +311,7 @@ a.nav {
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
     height: 35px;
-    letter-spacing: 1px; 
+    letter-spacing: 1px;
     margin-top: 5px;
     outline: none;
     text-align: center;
@@ -319,7 +320,7 @@ a.nav {
 
 /* Search for doctors button */
 .searchButton {
-    background-color:  rgba(219, 230, 198, 0.6);
+    background-color: rgba(219, 230, 198, 0.6);
     border: none;
     border-radius: 5px;
     color: white;
@@ -327,7 +328,7 @@ a.nav {
     font-size: 18px;
     font-weight: 500;
     height: 35px;
-    letter-spacing: 1px; 
+    letter-spacing: 1px;
     margin-top: 5px;
     outline: none;
     padding: 5px;
@@ -338,7 +339,7 @@ a.nav {
 
 /* Search for doctors button on hover */
 .searchButton:hover {
-    background-color:  rgba(219, 230, 198, 0.8);
+    background-color: rgba(219, 230, 198, 0.8);
     color: white;
 }
 
@@ -355,7 +356,7 @@ a.nav {
 
 /* User profile */
 .userInfo {
-    background-color:rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     color: white;
     font-size: 13px;
     font-weight: 300;
@@ -386,7 +387,12 @@ select {
     margin: 0 auto;
     position: relative;
     width: 80%;
-    
+}
+
+/* Adds background to doctors list of info */
+.background {
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 100%;
 }
 
 /* Google maps */
@@ -394,51 +400,89 @@ select {
     background-color:rgba(255, 255, 255, 0.5);
     border: 10px solid rgba(255, 255, 255, 0.3);
     height: 350px;
-    margin-left: 12.5%;
-    margin-right: 12.5%;
     margin-top: 50px;
     margin-bottom: 40px;
-    width: 90%;
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+    width: 75%;
+    height: 400px;
 }
 
 #content {
-    padding-bottom: 10px;
+    padding-bottom: 15px;
     text-align: center;
 }
 
-/* Doctor's name & title in google maps marker */
 .firstHeading {
     font-family: 'Poppins', sans-serif;
-    margin-bottom: 20px;
 }
 
-/* Specialty name in google maps marker */
 .specialtyName {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 800;
     text-transform: uppercase;
-    padding: 5px 0;
 }
 
-/* Doctor's description in google maps marker */
 .doctorDescription {
     font-family: 'Pavanam', sans-serif;
-    line-height: 18px;
 }
 
-/* "More Info link in google maps marker */
-a.info {
-    border-bottom: 1px solid darkblue;
-    color: darkblue;
-    font-size: 13px;
+/*FOOTER START///////////////////*/
+.footer {
+    padding: 50px 0 20px 0;
+    background-color: #878c94;
+    text-align: center;
+    color: white;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* "More Info link, visited, active */
-a.info:link:visited:active {
-    border-bottom: 1px solid darkblue;
+.footer .title {
+    text-align: center;
+    color: #fff;
+    font-size: 25px;
 }
 
-/* "More Info hover */
-a.info:hover {
-    border-bottom: 1px dotted darkblue;
+.about {
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer .text-center {
+    color: #fff;
+}
+
+.glyphicon-heart {
+    color: #fff;
+}
+
+.footer .social-icon a {
+    display: inline-block;
+    color: #fff;
+    font-size: 25px;
+    padding: 5px;
+}
+
+.footer .acount-icon a {
+    display: block;
+    color: #fff;
+    font-size: 18px;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.footer .acount-icon .fa {
+    margin-right: 25px;
+}
+
+.footer .category a {
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    padding: 5px 20px;
+    margin: 1px;
+    border-radius: 4px;
+    margin-top: 6px;
+    background-color: black;
+    border: solid 1px #fff;
 }
