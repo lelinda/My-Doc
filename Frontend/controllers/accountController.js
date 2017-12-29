@@ -155,8 +155,8 @@ app.controller("accountController", function ($scope, $state, $stateParams, $htt
   };
 
   // Delete
-  $scope.deleteUser = function (user) {
-    userService.delete($stateParams.id, user)
+  $scope.deleteUser = function () {
+    userService.delete()
       .then(function (response) {
         console.log(response.data);
         console.log($scope.users);

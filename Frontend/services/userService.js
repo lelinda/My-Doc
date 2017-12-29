@@ -32,8 +32,8 @@ app.service("userService", function ($http) {
   };
 
   // Delete
-  this.delete = function (id, user) {
-    return $http.delete("http://localhost:5000/api/users/" + id + "/", user);
+  this.delete = function () {
+    return $http.delete("http://localhost:5000/api/users/" + _currentUserId);
   };
 
   // current user logged in, 0 means no one is logged on
