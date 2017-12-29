@@ -72,6 +72,7 @@ app.controller("doctorsController", function ($scope, $state, $stateParams, $htt
               zoom: 8,
               center: new google.maps.LatLng(lat, lng)
             });
+
             for (var i = 0; i < response.data.data.length; i++) {
               $scope.docs.push(response.data.data[i]);
               console.log(response.data.data[i].profile.first_name)
